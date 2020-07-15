@@ -18,6 +18,9 @@
             <views:MainView DataContext="{Binding}" />
 
         </DataTemplate>
+        <DataTemplate x:Name="barTemplate" DataType="{x:Type viewmodels:BarMenuViewModel}">
+            <views:BarMenu DataContext="{Binding}" />
+        </DataTemplate>
     </Window.Resources>
     
     

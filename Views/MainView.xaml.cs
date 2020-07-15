@@ -28,7 +28,7 @@ namespace BarPlus.Views
 
         private void Btn_kassa_Click(object sender, RoutedEventArgs e)
         {
-            //MainWindow.App.SwitchPage(new KassaViewModel());
+            MainWindow.App.SwitchPage(new BarMenuViewModel());
         }
         private void Click_statistic(object sender, RoutedEventArgs e)
         {
