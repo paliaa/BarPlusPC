@@ -86,5 +86,10 @@ namespace BarPlus.Views
         {
 
         }
+
+        private void btn_click_result(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
