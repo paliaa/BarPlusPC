@@ -40,7 +40,7 @@
         <ContentControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="1" Content="{Binding}" />
         
         <!--INHALT DES GRIDS-->
-        <Label Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2" Content="BarPlus" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+        <Label Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2" Content="BarPlus" FontSize="35" HorizontalAlignment="Center" FontWeight="UltraBold" VerticalAlignment="Center"></Label>
         <Button HorizontalAlignment="Left" Height="40" Width="40" Margin="10,0,10,0" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Click="QuitButton_Click">
             <Image Source="/img/quit2.png" ></Image>
             <Button.Style>
@@ -84,7 +84,7 @@
             </Button.Style>
         </Button>
         <Button HorizontalAlignment="Right" Grid.Column="1" Height="40" Width="40" Margin="75,0,10,0" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Click="btn_configuration_click">
-            <Image Source="/img/configuration.png"></Image>
+            <Image Source="/img/configuration.png" Height="30"></Image>
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Template">
