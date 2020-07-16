@@ -64,5 +64,10 @@ namespace BarPlus
         {
             DataContext = page;
         }
+
+        private void btn_configuration_click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
