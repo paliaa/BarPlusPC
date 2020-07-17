@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BarPlus"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:viewmodels="clr-namespace:BarPlus.Viewmodels"
         xmlns:views="clr-namespace:BarPlus.Views"
         mc:Ignorable="d"
@@ -42,7 +43,7 @@
         <!--INHALT DES GRIDS-->
         <Label Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2" Content="BarPlus" FontSize="35" HorizontalAlignment="Center" FontWeight="UltraBold" VerticalAlignment="Center"></Label>
         <Button HorizontalAlignment="Left" Height="40" Width="40" Margin="10,0,10,0" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Click="QuitButton_Click">
-            <Image Source="/img/quit2.png" ></Image>
+            <fa:FontAwesome Icon="PowerOff" FontSize="40" />
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Template">
@@ -63,7 +64,7 @@
             </Button.Style>
         </Button>
         <Button HorizontalAlignment="Left" Height="40" Width="40" Margin="75,0,10,0" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Click="BackButton_Click">
-            <Image Source="/img/back2.png" ></Image>
+            <fa:FontAwesome Icon="ArrowCircleLeft" FontSize="40" />
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Template">
@@ -84,7 +85,7 @@
             </Button.Style>
         </Button>
         <Button HorizontalAlignment="Right" Grid.Column="1" Height="40" Width="40" Margin="75,0,10,0" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Click="btn_configuration_click">
-            <Image Source="/img/configuration.png" Height="30"></Image>
+            <fa:FontAwesome Icon="Cog" FontSize="40" />
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Template">
@@ -108,7 +109,7 @@
 
         <Label Grid.Column="2" Grid.Row="2" FontSize="12" HorizontalAlignment="Right" Margin="0,0,85,0"  >Supported by</Label>
         <Button Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,10,0" BorderBrush="Transparent" BorderThickness="0" Background="Transparent">
-            <Image Source="/img/logo_mima.png"></Image>
+            <Image Source="Assets/Images/logo_mima.png"></Image>
         </Button>
 
     </Grid>
