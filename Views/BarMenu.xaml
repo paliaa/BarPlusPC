@@ -9,7 +9,7 @@
     <Grid x:Name="viewBarMenu" Background="White">
         <!--AUFBAU DES GRIDS-->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="280" />
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="300" />
         </Grid.ColumnDefinitions>
@@ -21,7 +21,7 @@
         <Label Grid.Row="0" Grid.Column="0" FontWeight="ExtraBold"  FontSize="30" Content="Kassa" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
         
         <!--Nummerpad-->
-        <Button Content="7" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="11,115,0,0" VerticalAlignment="Top" Width="46" Height="40" FontSize="18" BorderThickness="2,2,2,1" Click="btn_click_7">
+        <Button Content="7" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="11,105,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2,2,2,1" Click="btn_click_7">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -33,14 +33,14 @@
             </Button.Background>
         </Button>
 
-        <TextBox Grid.Row="1" IsReadOnly="True" Text="0,00" Grid.Column="0" Height="38" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,40,0,0" HorizontalAlignment="Left" Width="200" FontSize="20" Background="Black" BorderThickness="2" Name="tb_kassa" TextAlignment="Right">
+        <TextBox Grid.Row="1" IsReadOnly="True" Text="0,00" Grid.Column="0" Height="38" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,40,0,0" HorizontalAlignment="Left" Width="230" FontSize="20" Background="Black" BorderThickness="2" Name="tb_kassa" TextAlignment="Right">
             <TextBox.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}" />
             </TextBox.Foreground>
 
         </TextBox>
 
-        <Button Content="8" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="62,115,0,0" VerticalAlignment="Top" Width="46" Height="40" FontSize="18" BorderThickness="2" Click="btn_click_8">
+        <Button Content="8" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="70,105,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_8">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -51,7 +51,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="9" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="113,115,0,0" VerticalAlignment="Top" Width="46" Height="40" FontSize="18" BorderThickness="2" Click="btn_click_9">
+        <Button Content="9" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="130,105,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_9">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -63,7 +63,7 @@
             </Button.Background>
         </Button>
 
-        <Button Content="Del" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="164,115,0,0" VerticalAlignment="Top" Width="46" Height="40" FontSize="18" BorderThickness="2" Click="btn_del">
+        <Button Content="Del" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="190,105,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_del">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -74,7 +74,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="4" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="11,151,0,0" VerticalAlignment="Top" Width="46" Height="40" FontSize="18" BorderThickness="2" Click="btn_click_4">
+        <Button Content="4" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="11,170,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_4">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -85,7 +85,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="5" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="62,151,0,0" VerticalAlignment="Top" Width="46" Height="40" FontSize="18" BorderThickness="2" Click="btn_click_5">
+        <Button Content="5" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="70,170,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_5">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -96,7 +96,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="6" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="113,151,0,0" VerticalAlignment="Top" Width="46" Height="40" FontSize="18" BorderThickness="2" Click="btn_click_6">
+        <Button Content="6" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="130,170,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_6">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -107,7 +107,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="*" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="164,151,0,0" VerticalAlignment="Top" Width="46" Height="40" FontSize="18" BorderThickness="2" Click="btn_multi">
+        <Button Content="*" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="190,170,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_multi">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -118,7 +118,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="1" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="11,187,0,0" VerticalAlignment="Top" Width="46" Height="40" FontSize="18" BorderThickness="2" Click="btn_click_1">
+        <Button Content="1" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="11,235,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_1">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -129,7 +129,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="2" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="62,187,0,0" VerticalAlignment="Top" Width="46" Height="40" FontSize="18" BorderThickness="2" Click="btn_click_2">
+        <Button Content="2" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="70,235,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_2">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -140,7 +140,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="3" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="113,187,0,0" VerticalAlignment="Top" Width="46" Height="40" FontSize="18" BorderThickness="2" Click="btn_click_3">
+        <Button Content="3" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="130,235,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_3">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -151,7 +151,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="-" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="164,187,0,0" VerticalAlignment="Top" Width="46" Height="40" FontSize="18" BorderThickness="2" Click="btn_minus">
+        <Button Content="-" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="190,235,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_minus">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -162,7 +162,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="0" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="11,223,0,0" VerticalAlignment="Top" Width="46" Height="40" FontSize="18" BorderThickness="2" Click="btn_click_0">
+        <Button Content="0" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="11,300,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_0">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -173,7 +173,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="TOTAL" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="62,223,0,0" VerticalAlignment="Top" Width="97" Height="40" FontSize="18" BorderThickness="2" Click="btn_click_result">
+        <Button Content="TOTAL" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="70,300,0,0" VerticalAlignment="Top" Width="110" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_result">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -184,7 +184,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="+" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="164,223,0,0" VerticalAlignment="Top" Width="46" Height="40" FontSize="18" BorderThickness="2" Click="btn_plus">
+        <Button Content="+" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="190,300,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_plus">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -222,17 +222,49 @@
                         <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
                         <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
                         <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
                         <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
                         <Button Content="Macchiato" FontSize="15" Width="100" Height="100" Margin="5" />
                         <Button Content="Cappuccino" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
                         <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
                         <Button Content="Americano" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
                         <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                 </StackPanel>

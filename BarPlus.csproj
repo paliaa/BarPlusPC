@@ -59,10 +59,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Viewmodels\BarMenuViewModel.cs" />
+    <Compile Include="Viewmodels\ConfigurationViewModel.cs" />
     <Compile Include="Viewmodels\MainViewModel.cs" />
     <Compile Include="Viewmodels\StatisticViewModel.cs" />
     <Compile Include="Views\BarMenu.xaml.cs">
       <DependentUpon>BarMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Configuration.xaml.cs">
+      <DependentUpon>Configuration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -83,6 +87,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\BarMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Configuration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

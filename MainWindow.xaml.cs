@@ -44,6 +44,7 @@ namespace BarPlus
         {
             System.Windows.Application.Current.Shutdown();
         }
+
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             SwitchPage(new MainViewModel());
@@ -65,9 +66,9 @@ namespace BarPlus
             DataContext = page;
         }
 
-        private void btn_configuration_click(object sender, RoutedEventArgs e)
+        private void Btn_configuration_click(object sender, RoutedEventArgs e)
         {
-
+            SwitchPage(new ConfigurationViewModel());
         }
     }
 }

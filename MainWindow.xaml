@@ -9,18 +9,19 @@
         xmlns:views="clr-namespace:BarPlus.Views"
         mc:Ignorable="d"
         Title="MainWindow" WindowState="Maximized" WindowStyle="None">
+    
     <Window.Resources>
         <DataTemplate x:Name="statisticTemplate" DataType="{x:Type viewmodels:StatisticViewModel}">
             <views:Statistic DataContext="{Binding Statistic}" />
-
         </DataTemplate>
-
         <DataTemplate x:Name="mainTemplate" DataType="{x:Type viewmodels:MainViewModel}">
             <views:MainView DataContext="{Binding}" />
-
         </DataTemplate>
         <DataTemplate x:Name="barTemplate" DataType="{x:Type viewmodels:BarMenuViewModel}">
             <views:BarMenu DataContext="{Binding}" />
+        </DataTemplate>
+        <DataTemplate x:Name="configurationTemplate" DataType="{x:Type viewmodels:ConfigurationViewModel}">
+            <views:Configuration DataContext="{Binding Configuration}" />
         </DataTemplate>
     </Window.Resources>
     
@@ -84,7 +85,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button HorizontalAlignment="Right" Grid.Column="1" Height="40" Width="40" Margin="75,0,10,0" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Click="btn_configuration_click">
+        <Button HorizontalAlignment="Right" Grid.Column="1" Height="40" Width="40" Margin="75,0,10,0" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Click="Btn_configuration_click">
             <fa:FontAwesome Icon="Cog" FontSize="40" />
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
