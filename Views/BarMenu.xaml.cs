@@ -282,12 +282,27 @@ namespace BarPlus.Views
         private void btn_varie_click(object sender, RoutedEventArgs e)
         {
             //Variable
-            string tb = tb_kassa.Text.ToString();
-            Double priceTb = Convert.ToDouble(tb);
+            string tb =  tb_kassa.Text.ToString();
+            char[] separator = {'.',','};
+            Int32 count = 2;
+            Double priceTb;
 
+            //Todo Null bei einstelliger Decimal hinzufügen
+            String[] strlist = tb.Split(separator, count, StringSplitOptions.None);
+
+            if(strlist[1].Length == 1)
+            {
+                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1] + "0");
+            }
+            else
+            {
+                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
+            }
             this.lv_Users.Items.Add(new MyItem { product = "Varie 10%", price = priceTb });
 
-
+            //Textbox zurücksetzen
+            tb_kassa.Clear();
+            tb_kassa.Text = "0";
         }
     }
 
