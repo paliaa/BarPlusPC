@@ -33,7 +33,7 @@
             </Button.Background>
         </Button>
 
-        <TextBox Grid.Row="1" IsReadOnly="True" Text="0,00" Grid.Column="0" Height="38" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,40,0,0" HorizontalAlignment="Left" Width="230" FontSize="20" Background="Black" BorderThickness="2" Name="tb_kassa" TextAlignment="Right">
+        <TextBox Text="0" Grid.Row="1" IsReadOnly="True" Grid.Column="0" Height="38" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,40,0,0" HorizontalAlignment="Left" Width="230" FontSize="20" Background="Black" BorderThickness="2" Name="tb_kassa" TextAlignment="Right">
             <TextBox.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}" />
             </TextBox.Foreground>
@@ -162,7 +162,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="0" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="11,300,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_0">
+        <Button Content="0" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="11,300,0,0" VerticalAlignment="Top" Width="110" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_0">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -173,7 +173,18 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="TOTAL" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="70,300,0,0" VerticalAlignment="Top" Width="110" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_result">
+        <Button Content="TOTAL" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="11,365,0,0" VerticalAlignment="Top" Width="230" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_result">
+            <Button.Foreground>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
+            </Button.Foreground>
+            <Button.BorderBrush>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
+            </Button.Background>
+        </Button>
+        <Button Content="," Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="130,300,0,0" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" BorderThickness="2" Click="btn_click_comma">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>
@@ -281,18 +292,50 @@
                         <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
                         <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
                         <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
                         <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
                         <Button Content="Macchiato" FontSize="15" Width="100" Height="100" Margin="5" />
                         <Button Content="Cappuccino" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
                         <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
                         <Button Content="Americano" FontSize="15" Width="100" Height="100" Margin="5" />
                         <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                 </StackPanel>
             </TabItem>
