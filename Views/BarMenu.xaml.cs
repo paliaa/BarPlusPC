@@ -278,5 +278,22 @@ namespace BarPlus.Views
                 tb_kassa.Text = tb_kassa.Text + comm.ToString();
             }
         }
+
+        private void btn_varie_click(object sender, RoutedEventArgs e)
+        {
+            //Variable
+            string tb = tb_kassa.Text.ToString();
+            Double priceTb = Convert.ToDouble(tb);
+
+            this.lv_Users.Items.Add(new MyItem { product = "Varie 10%", price = priceTb });
+
+
+        }
+    }
+
+    internal class MyItem
+    {
+        public String product { get; set; }
+        public double price { get; set; }
     }
 }
