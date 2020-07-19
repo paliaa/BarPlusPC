@@ -8,7 +8,7 @@
         xmlns:viewmodels="clr-namespace:BarPlus.Viewmodels"
         xmlns:views="clr-namespace:BarPlus.Views"
         mc:Ignorable="d"
-        Title="MainWindow" WindowState="Maximized" WindowStyle="None">
+        Title="MainWindow" WindowState="Maximized" WindowStyle="None" Width="1366" Height="768">
     
     <Window.Resources>
         <DataTemplate x:Name="statisticTemplate" DataType="{x:Type viewmodels:StatisticViewModel}">
