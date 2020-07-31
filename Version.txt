@@ -1,0 +1,3 @@
+Version 0.1
+Oberfläche erstellt
+Funktion "Varie 10%" erstellt
