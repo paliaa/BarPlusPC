@@ -310,11 +310,6 @@ namespace BarPlus.Views
             }
             else
             {
-                for (int i = 0; i < strlist.Length; i++)
-                {
-                    
-                }
-
                 priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
             }
             this.lv_Users.Items.Add(new MyItem { product = "Varie 10%", price = priceTb });

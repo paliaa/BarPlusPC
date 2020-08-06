@@ -42,7 +42,19 @@ namespace BarPlus
 
         private void QuitButton_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            MessageBoxResult result = MessageBox.Show("Vuole fare un backup?", "Backup", MessageBoxButton.YesNoCancel);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    System.Windows.Application.Current.Shutdown();
+                    break;
+                case MessageBoxResult.No:
+                    System.Windows.Application.Current.Shutdown();
+                    break;
+                case MessageBoxResult.Cancel:
+                    break;
+            }
+            
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
