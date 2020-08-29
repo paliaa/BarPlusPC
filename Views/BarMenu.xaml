@@ -217,6 +217,12 @@
                         <GridViewColumn x:Name="v_Price" DisplayMemberBinding="{Binding price}" Header="Prezzo" Width="50" />
                     </GridView>
                 </ListView.View>
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Cancella" Click="Lvi_loeschen" />
+                        <MenuItem Header="Cancella tutto" Click="Lvi_alleloeschen"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
             </ListView>
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="2" Margin="10,430,10,10">

@@ -232,19 +232,33 @@ namespace BarPlus.Views
             //Variablen
             string tb = tb_kassa.Text.ToString();
 
-            if (tb.Length > 1)
+            var index = lv_Users.Items.IndexOf(lv_Users.SelectedItem);
+            MessageBox.Show("Index: " + index);
+            if (index == -1)
             {
-                tb = tb.Substring(0, tb.Length - 1);
+                if (tb.Length > 1)
+                {
+                    tb = tb.Substring(0, tb.Length - 1);
+                }
+                else
+                {
+                    tb = "0";
+                }
+                tb_kassa.Text = tb.ToString();
             }
             else
             {
-                tb = "0";
+                lv_Users.Items.RemoveAt(index);
             }
-            tb_kassa.Text = tb.ToString();
+            
         }
 
         private void btn_multi(object sender, RoutedEventArgs e)
         {
+            if(tb_kassa.Text != "0")
+            {
+                lv_Users.SelectAll();
+            }
 
         }
 
@@ -289,10 +303,10 @@ namespace BarPlus.Views
 
             //Todo Null bei einstelliger Decimal hinzufügen
             String[] strlist = tb.Split(separator, count, StringSplitOptions.None);
-
-            if(strlist[1].Length == 1)
+            
+            if (tb.Contains(",") == false)
             {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1] + "0");
+                priceTb = Convert.ToDouble(strlist[0] + ",0");
             }
             else
             {
@@ -300,9 +314,22 @@ namespace BarPlus.Views
             }
             this.lv_Users.Items.Add(new MyItem { product = "Varie 10%", price = priceTb });
 
+
+
             //Textbox zurücksetzen
             tb_kassa.Clear();
             tb_kassa.Text = "0";
+        }
+
+        private void Lvi_loeschen(object sender, RoutedEventArgs e)
+        {
+            var index = lv_Users.Items.IndexOf(lv_Users.SelectedItem);
+            lv_Users.Items.RemoveAt(index);
+        }
+
+        private void Lvi_alleloeschen(object sender, RoutedEventArgs e)
+        {
+            lv_Users.Items.Clear();
         }
     }
 

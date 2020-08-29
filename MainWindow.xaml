@@ -43,7 +43,7 @@
         
         <!--INHALT DES GRIDS-->
         <Label Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2" Content="BarPlus" FontSize="35" HorizontalAlignment="Center" FontWeight="UltraBold" VerticalAlignment="Center"></Label>
-        <Button HorizontalAlignment="Left" Height="40" Width="40" Margin="10,0,10,0" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Click="QuitButton_Click">
+        <Button HorizontalAlignment="Left" Height="40" Width="40" Margin="10,0,10,0" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Click="QuitButton_Click" x:Name="ButtonShutdown">
             <fa:FontAwesome Icon="PowerOff" FontSize="40" />
             <Button.Style>
                 <Style TargetType="{x:Type Button}">

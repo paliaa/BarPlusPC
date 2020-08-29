@@ -16,6 +16,30 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
+        <TabControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,10,10,0">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Prodotti" Foreground="Blue" />
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="IVA" Foreground="Blue" />
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Stampante" Foreground="Blue" />
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+        </TabControl>
+        
         <Button Content="Salva" Grid.Row="1" Grid.Column="1" Width="75" Height="30" HorizontalAlignment="Right" Margin="10,10,10,10" ></Button>
         <Button Content="Cancel" Grid.Row="1" Grid.Column="1" Width="75" Height="30" HorizontalAlignment="Right" Margin="10,10,100,10" ></Button>
         <Label Content="Loading..." x:Name="lbl_loading" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Hidden"></Label>
