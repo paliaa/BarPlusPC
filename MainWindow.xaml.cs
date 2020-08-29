@@ -35,24 +35,25 @@ namespace BarPlus
         {
             InitializeComponent();
 
+            startclock();
             //Makes the MainWindow object public so that it and its public methods are visible in the whole project.
             MainWindow.App = this;
 
             SwitchPage(new MainViewModel());
         }
 
-        public void DispatcherTimerSample()
+        private void startclock()
         {
-            InitializeComponent();
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += timer_Tick;
+            timer.Tick += tickevent;
             timer.Start();
         }
 
-        void timer_Tick(object sender, EventArgs e)
+        private void tickevent(object sender, EventArgs e)
         {
-            main_time.Content = DateTime.Now.ToLongTimeString();
+            //throw new NotImplementedException();
+            main_time.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         }
 
         private void QuitButton_Click(object sender, RoutedEventArgs e)
