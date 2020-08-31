@@ -236,414 +236,591 @@
         <TabControl Grid.Row="1" Grid.Column="1">
             <TabItem>
                 <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Visibility="Hidden">
                         <TextBlock Text="Group1" Foreground="Blue" />
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_1_1" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_2" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_3" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_4" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_5" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_6" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_7" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_1_1" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_1_2" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_1_3" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_1_4" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_1_5" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_1_6" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_1_7" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_1_8" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Macchiato" Name="prod_1_9" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_10" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_11" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Macchiato" Name="prod_1_12" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_13" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_14" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_1_8" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_1_9" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_1_10" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_1_11" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_1_12"  Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_1_13" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_1_14" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_15" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" FontSize="15" Name="prod_1_16" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" FontSize="15" Name="prod_1_17" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_18" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_19" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_20" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_21" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_15" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Name="prod_1_16"  Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Name="prod_1_17" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_18" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_1_19" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_1_20" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_1_21" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_22" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_23" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_24" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_25" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_26" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_27" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_28" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_22" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_1_23" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_1_24" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_25" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_1_26" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_1_27" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_1_28" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_29" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_30" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_31" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_32" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_33" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_34" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_35" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_29" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_1_30" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_1_31" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_32" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_1_33" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_1_34" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_1_35" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                 </StackPanel>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Name="Group2" Text="Prodotti 1" Foreground="Blue" />
+                        <TextBlock Name="Group2" Text="Group2" Visibility="Hidden" Foreground="Blue" />
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_2_1" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_2_2" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_2_3" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_2_4" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_2_5" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_2_6" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_2_7" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_2_1" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_2_2" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_2_3" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_2_4" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_2_5" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_2_6" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_2_7" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_2_8" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Macchiato" Name="prod_2_9" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_2_10" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_2_11" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Macchiato" Name="prod_2_12" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_2_13" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_2_14" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_2_8" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_2_9" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_2_10" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_2_11" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_2_12" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_2_13" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_2_14" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_2_15" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" FontSize="15" Name="prod_2_16" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" FontSize="15" Name="prod_2_17" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_2_18" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_2_19" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_2_20" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_2_21" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_2_15" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Name="prod_2_16" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Name="prod_2_17" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_2_18" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_2_19" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_2_20" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_2_21" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_2_22" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_2_23" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_2_24" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_2_25" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_2_26" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_2_27" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_2_28" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_2_22" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_2_23" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_2_24" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_2_25" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_2_26" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_2_27" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_2_28" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_2_29" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_2_30" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_2_31" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_2_32" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_2_33" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_2_34" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_2_35" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_2_29" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_2_30" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_2_31" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_2_32" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_2_33" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_2_34" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_2_35" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                 </StackPanel>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Group3" Foreground="Blue" />
+                        <TextBlock Name="Group3" Text="Group3" Visibility="Hidden" Foreground="Blue" />
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_3_1" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_2" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_3" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_4" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_5" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_6" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_7" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_3_1" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_3_2" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_3_3" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_3_4" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_3_5" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_3_6" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_3_7" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_1_8" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Macchiato" Name="prod_1_9" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_10" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_11" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Macchiato" Name="prod_1_12" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_13" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_14" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_3_8" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_3_9" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_3_10" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_3_11" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_3_12" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_3_13" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_3_14" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_15" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" FontSize="15" Name="prod_1_16" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" FontSize="15" Name="prod_1_17" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_18" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_19" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_20" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_21" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_3_15" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Name="prod_3_16" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Name="prod_3_17" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_3_18" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_3_19" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_3_20" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_3_21" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_22" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_23" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_24" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_25" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_26" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_27" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_28" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_3_22" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_3_23" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_3_24" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_3_25" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_3_26" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_3_27" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_3_28" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_29" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_30" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_31" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_32" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_33" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_34" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_35" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_3_29" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_3_30" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_3_31" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_3_32" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_3_33" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_3_34" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_3_35" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                 </StackPanel>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Group3" Foreground="Blue" />
+                        <TextBlock Text="Group4" Name="Group4" Visibility="Hidden" Foreground="Blue" />
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_1_1" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_2" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_3" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_4" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_5" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_6" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_7" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_4_1" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_4_2" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_4_3" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_4_4" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_4_5" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_4_6" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_4_7" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_1_8" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Macchiato" Name="prod_1_9" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_10" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_11" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Macchiato" Name="prod_1_12" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_13" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_14" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_4_8" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_4_9" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_4_10" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_4_11" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_4_12" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_4_13" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_4_14" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_15" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" FontSize="15" Name="prod_1_16" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" FontSize="15" Name="prod_1_17" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_18" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_19" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_20" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_21" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_4_15" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Name="prod_4_16" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Name="prod_4_17" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_4_18" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_4_19" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_4_20" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_4_21" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_22" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_23" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_24" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_25" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_26" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_27" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_28" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_4_22" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_4_23" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_4_24" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_4_25" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_4_26" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_4_27" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_4_28" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_29" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_30" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_31" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_32" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_33" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_34" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_35" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_4_29" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_4_30" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_4_31" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_4_32" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_4_33" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_4_34" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_4_35" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                 </StackPanel>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Group4" Foreground="Blue" />
+                        <TextBlock Text="Group5" Name="Group5" Visibility="Hidden" Foreground="Blue" />
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_1_1" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_2" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_3" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_4" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_5" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_6" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_7" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_5_1" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_5_2" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_5_3" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_5_4" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_5_5" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_5_6" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_5_7" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_1_8" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Macchiato" Name="prod_1_9" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_10" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_11" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Macchiato" Name="prod_1_12" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_13" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_14" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_5_8" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_5_9" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_5_10" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_5_11" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_5_12" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_5_13" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_5_14" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_15" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" FontSize="15" Name="prod_1_16" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" FontSize="15" Name="prod_1_17" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_18" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_19" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_20" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_21" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_5_15" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Name="prod_5_16" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Name="prod_5_17" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_5_18" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_5_19" FontSize="15" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_5_20" FontSize="15" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_5_21" FontSize="15" Visibility="Hidden" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_22" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_23" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_24" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_25" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_26" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_27" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_28" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_5_22" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_5_23" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_5_24" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_5_25" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_5_26" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_5_27" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_5_28" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_29" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_30" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_31" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_32" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_33" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_34" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_35" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_5_29" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_5_30" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_5_31" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_5_32" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_5_33" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_5_34" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_5_35" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                 </StackPanel>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Group5" Foreground="Blue" />
+                        <TextBlock Text="Group6" Name="Group6" Visibility="Hidden" Foreground="Blue" />
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_1_1" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_2" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_3" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_4" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_5" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_6" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_7" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_6_1" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_6_2" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_6_3" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_6_4" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_6_5" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_6_6" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_6_7" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_1_8" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Macchiato" Name="prod_1_9" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_10" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_11" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Macchiato" Name="prod_1_12" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_13" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_14" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_6_8" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_6_9" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_6_10" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_6_11" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_6_12" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_6_13" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_6_14" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_15" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" FontSize="15" Name="prod_1_16" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" FontSize="15" Name="prod_1_17" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_18" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_19" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_20" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_21" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_6_15" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Name="prod_6_16" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Name="prod_6_17" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_6_18" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_6_19" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_6_20" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_6_21" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_22" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_23" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_24" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_25" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_26" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_27" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_28" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_6_22" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_6_23" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_6_24" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_6_25" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_6_26" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_6_27" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_6_28" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_29" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_30" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_31" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_32" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_33" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_34" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_35" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_6_29" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_6_30" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_6_31" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_6_32" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_6_33" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_6_34" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_6_35" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                 </StackPanel>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Group6" Foreground="Blue" />
+                        <TextBlock Text="Group7" Name="Group7" Visibility="Hidden" Foreground="Blue" />
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_1_1" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_2" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_3" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_4" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_5" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_6" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_7" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_7_1" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_7_2" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_7_3" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_7_4" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_7_5" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_7_6" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_7_7" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_1_8" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Macchiato" Name="prod_1_9" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_10" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_11" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Macchiato" Name="prod_1_12" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_13" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Cappuccino" Name="prod_1_14" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_7_8" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_7_9" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_7_10" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_7_11" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_7_12" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_7_13" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_7_14" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_15" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" FontSize="15" Name="prod_1_16" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" FontSize="15" Name="prod_1_17" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_18" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_19" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_20" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_21" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_7_15" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Name="prod_7_16" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Name="prod_7_17" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_7_18" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_7_19" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_7_20" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_7_21" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_22" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_23" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_24" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_25" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_26" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_27" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_28" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_7_22" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_7_23" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_7_24" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_7_25" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_7_26" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_7_27" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_7_28" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_29" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_30" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_31" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Latte &#xa;Macchiatto" Name="prod_1_32" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Americano" Name="prod_1_33" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_34" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Affogato" Name="prod_1_35" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_7_29" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_7_30" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_7_31" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_7_32" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_7_33" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_7_34" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_7_35" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Group8" Name="Group8" Visibility="Hidden" Foreground="Blue" />
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Espresso" Name="prod_8_1" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_8_2" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_8_3" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_8_4" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_8_5" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_8_6" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_8_7" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Espresso" Name="prod_8_8" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_8_9" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_8_10" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_8_11" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_8_12" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_8_13" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_8_14" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_8_15" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Name="prod_8_16" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Name="prod_8_17" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_8_18" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_8_19" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_8_20" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_8_21" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_8_22" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_8_23" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_8_24" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_8_25" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_8_26" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_8_27" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_8_28" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_8_29" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_8_30" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_8_31" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_8_32" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_8_33" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_8_34" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_8_35" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Group9" Name="Group9" Visibility="Hidden" Foreground="Blue" />
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Espresso" Name="prod_9_1" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_9_2" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_9_3" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_9_4" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_9_5" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_9_6" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_9_7" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Espresso" Name="prod_9_8" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_9_9" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_9_10" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_9_11" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_9_12" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_9_13" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_9_14" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_9_15" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Name="prod_9_16" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Name="prod_9_17" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_9_18" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_9_19" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_9_20" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_9_21" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_9_22" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_9_23" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_9_24" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_9_25" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_9_26" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_9_27" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_9_28" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_9_29" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_9_30" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_9_31" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_9_32" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_9_33" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_9_34" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_9_35" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Group10" Name="Group10" Visibility="Hidden" Foreground="Blue" />
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Espresso" Name="prod_10_1" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_10_2" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_10_3" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_10_4" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_10_5" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_10_6" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_10_7" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Espresso" Name="prod_10_8" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_10_9" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_10_10" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_10_11" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Macchiato" Name="prod_10_12" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_10_13" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Cappuccino" Name="prod_10_14" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_10_15" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" FontSize="15" Name="prod_10_16" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" FontSize="15" Name="prod_10_17" Visibility="Hidden" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_10_18" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_10_19" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_10_20" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_10_21" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_10_22" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_10_23" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_10_24" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_10_25" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_10_26" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_10_27" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_10_28" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- items -->
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_10_29" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_10_30" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_10_31" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Latte &#xa;Macchiatto" Name="prod_10_32" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Americano" Name="prod_10_33" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_10_34" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Affogato" Name="prod_10_35" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                     </StackPanel>
                 </StackPanel>
             </TabItem>

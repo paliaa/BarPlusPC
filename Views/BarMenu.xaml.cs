@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace BarPlus.Views
 {
@@ -23,7 +24,11 @@ namespace BarPlus.Views
         public BarMenu()
         {
             InitializeComponent();
+
+
         }
+
+
 
         private void btn_click_1(object sender, RoutedEventArgs e)
         {
