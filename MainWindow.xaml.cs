@@ -53,7 +53,7 @@ namespace BarPlus
         private void tickevent(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            main_time.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            main_time.Content = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         }
 
         private void QuitButton_Click(object sender, RoutedEventArgs e)
