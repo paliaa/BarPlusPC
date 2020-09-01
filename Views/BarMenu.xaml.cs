@@ -24,11 +24,42 @@ namespace BarPlus.Views
         public BarMenu()
         {
             InitializeComponent();
+            try
+            {
+                //generate the connection string
+                string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
+                
+                //create a MySQL connection with a query string
+                MySqlConnection connection = new MySqlConnection(connectionString);
+
+                MySqlCommand cmd = new MySqlCommand("select count(*) from t_products", connection);
+
+                //open the connection
+                connection.Open();
+
+                cmd.ExecuteReader();
+                
 
 
+
+                //close the connection
+                connection.Close();
+            } 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
+        public static string CreateConnStr(string server, string databaseName, string user, string pass)
+        {
+            //build the connection string
+            string connStr = "server=" + server + ";database=" + databaseName + ";uid=" +
+                user + ";password=" + pass + ";";
 
+            //return the connection string
+            return connStr;
+        }
 
         private void btn_click_1(object sender, RoutedEventArgs e)
         {
@@ -335,6 +366,20 @@ namespace BarPlus.Views
         private void Lvi_alleloeschen(object sender, RoutedEventArgs e)
         {
             lv_Users.Items.Clear();
+        }
+
+        private void btn_1_1(object sender, RoutedEventArgs e)
+        {
+            //create a MySQL connection with a query string
+            MySqlConnection connection = new MySqlConnection("server=localhost;database=barplus;uid=root;password=mima10492");
+
+            //open the connection
+            connection.Open();
+
+
+
+            //close the connection
+            connection.Close();
         }
     }
 

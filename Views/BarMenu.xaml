@@ -243,7 +243,7 @@
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
-                        <Button Content="Espresso" Name="prod_1_1" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_1_1" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" Click="btn_1_1" />
                         <Button Content="Espresso" Name="prod_1_2" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                         <Button Content="Espresso" Name="prod_1_3" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
                         <Button Content="Espresso" Name="prod_1_4" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
