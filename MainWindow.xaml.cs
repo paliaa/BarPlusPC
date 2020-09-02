@@ -73,7 +73,7 @@ namespace BarPlus
             
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
             SwitchPage(new MainViewModel());
         }

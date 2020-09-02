@@ -64,8 +64,8 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button HorizontalAlignment="Left" Height="40" Width="40" Margin="75,0,10,0" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Click="BackButton_Click">
-            <fa:FontAwesome Icon="ArrowCircleLeft" FontSize="40" />
+        <Button HorizontalAlignment="Left" Height="40" Width="40" Margin="75,0,10,0" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Click="HomeButton_Click">
+            <fa:FontAwesome Icon="Home" FontSize="40" />
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Template">

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,18 +33,19 @@ namespace BarPlus.Views
                 //create a MySQL connection with a query string
                 MySqlConnection connection = new MySqlConnection(connectionString);
 
-                MySqlCommand cmd = new MySqlCommand("select count(*) from t_products", connection);
+                MySqlCommand cmd = new MySqlCommand("select Count(*) from t_group", connection);
 
                 //open the connection
                 connection.Open();
 
-                cmd.ExecuteReader();
-                
+                string resultcount = cmd.ExecuteScalar().ToString();
 
-
+                Console.WriteLine("Wert: " + resultcount);
 
                 //close the connection
                 connection.Close();
+
+                int iCount = int.Parse(resultcount);
             } 
             catch (Exception ex)
             {

@@ -62,6 +62,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Class\totalValue.cs" />
     <Compile Include="Viewmodels\BarMenuViewModel.cs" />
     <Compile Include="Viewmodels\ConfigurationViewModel.cs" />
     <Compile Include="Viewmodels\MainViewModel.cs" />
@@ -138,7 +139,6 @@
     <Resource Include="Assets\Images\logo_mima.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Class\" />
     <Folder Include="Models\" />
     <Folder Include="SQL\" />
   </ItemGroup>
