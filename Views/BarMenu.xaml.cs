@@ -21,12 +21,16 @@ namespace BarPlus.Views
     /// Interaktionslogik für BarMenu.xaml
     /// </summary>
     /// 
+
+
     //Einbinden einer DLL-Datei
     using BarPlus.funcDLL;
 
-
-    public partial class BarMenu : UserControl
+        public partial class BarMenu : UserControl
     {
+        //globale Variable
+        public static int quantity;
+
         public BarMenu()
         {
             InitializeComponent();
@@ -68,215 +72,96 @@ namespace BarPlus.Views
             return connStr;
         }
 
-        private void btn_click_1(object sender, RoutedEventArgs e)
+        private void Btn_click_1(object sender, RoutedEventArgs e)
         {
             //Variablen
             string tb = tb_kassa.Text.ToString();
             int num = 1;
 
-            if (tb == "")
-            {
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb == "0")
-            {
-                tb_kassa.Clear();
-                tb_kassa.Text = num.ToString();
-            }
-            else if(tb != "")
-            {
-                tb_kassa.Text = tb_kassa.Text + num.ToString();
-            }
+            tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
+
         }
 
-        private void btn_click_2(object sender, RoutedEventArgs e)
+        private void Btn_click_2(object sender, RoutedEventArgs e)
         {
             //Variablen
             string tb = tb_kassa.Text.ToString();
             int num = 2;
 
-            if (tb == "")
-            {
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb == "0")
-            {
-                tb_kassa.Clear();
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb != "")
-            {
-                tb_kassa.Text = tb_kassa.Text + num.ToString();
-            }
+            tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
-        private void btn_click_3(object sender, RoutedEventArgs e)
+        private void Btn_click_3(object sender, RoutedEventArgs e)
         {
             //Variablen
             string tb = tb_kassa.Text.ToString();
             int num = 3;
 
-            if (tb == "")
-            {
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb == "0")
-            {
-                tb_kassa.Clear();
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb != "")
-            {
-                tb_kassa.Text = tb_kassa.Text + num.ToString();
-            }
+            tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
-        private void btn_click_4(object sender, RoutedEventArgs e)
+        private void Btn_click_4(object sender, RoutedEventArgs e)
         {
             //Variablen
             string tb = tb_kassa.Text.ToString();
             int num = 4;
 
-            if (tb == "")
-            {
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb == "0")
-            {
-                tb_kassa.Clear();
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb != "")
-            {
-                tb_kassa.Text = tb_kassa.Text + num.ToString();
-            }
+            tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
-        private void btn_click_5(object sender, RoutedEventArgs e)
+        private void Btn_click_5(object sender, RoutedEventArgs e)
         {
             //Variablen
             string tb = tb_kassa.Text.ToString();
             int num = 5;
 
-            if (tb == "")
-            {
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb == "0")
-            {
-                tb_kassa.Clear();
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb != "")
-            {
-                tb_kassa.Text = tb_kassa.Text + num.ToString();
-            }
+            tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
-        private void btn_click_6(object sender, RoutedEventArgs e)
+        private void Btn_click_6(object sender, RoutedEventArgs e)
         {
             //Variablen
             string tb = tb_kassa.Text.ToString();
             int num = 6;
 
-            if (tb == "")
-            {
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb == "0")
-            {
-                tb_kassa.Clear();
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb != "")
-            {
-                tb_kassa.Text = tb_kassa.Text + num.ToString();
-            }
+            tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
-        private void btn_click_7(object sender, RoutedEventArgs e)
+        private void Btn_click_7(object sender, RoutedEventArgs e)
         {
             //Variablen
             string tb = tb_kassa.Text.ToString();
             int num = 7;
 
-            if (tb == "")
-            {
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb == "0")
-            {
-                tb_kassa.Clear();
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb != "")
-            {
-                tb_kassa.Text = tb_kassa.Text + num.ToString();
-            }
+            tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
-        private void btn_click_8(object sender, RoutedEventArgs e)
+        private void Btn_click_8(object sender, RoutedEventArgs e)
         {
             //Variablen
             string tb = tb_kassa.Text.ToString();
             int num = 8;
 
-            if (tb == "")
-            {
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb == "0")
-            {
-                tb_kassa.Clear();
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb != "")
-            {
-                tb_kassa.Text = tb_kassa.Text + num.ToString();
-            }
+            tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
-        private void btn_click_9(object sender, RoutedEventArgs e)
+        private void Btn_click_9(object sender, RoutedEventArgs e)
         {
             //Variablen
             string tb = tb_kassa.Text.ToString();
             int num = 9;
 
-            if (tb == "")
-            {
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb == "0")
-            {
-                tb_kassa.Clear();
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb != "")
-            {
-                tb_kassa.Text = tb_kassa.Text + num.ToString();
-            }
+            tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
-        private void btn_click_0(object sender, RoutedEventArgs e)
+        private void Btn_click_0(object sender, RoutedEventArgs e)
         {
             //Variablen
             string tb = tb_kassa.Text.ToString();
             int num = 0;
 
-            if (tb == "")
-            {
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb == "0")
-            {
-                tb_kassa.Clear();
-                tb_kassa.Text = num.ToString();
-            }
-            else if (tb != "")
-            {
-                tb_kassa.Text = tb_kassa.Text + num.ToString();
-            }
+            tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
 
-        private void btn_del(object sender, RoutedEventArgs e)
+        private void Btn_del(object sender, RoutedEventArgs e)
         {
             //Variablen
             string tb = tb_kassa.Text.ToString();
 
             var index = lv_Users.Items.IndexOf(lv_Users.SelectedItem);
-            MessageBox.Show("Index: " + index);
+            //MessageBox.Show("Index: " + index);
             if (index == -1)
             {
                 if (tb.Length > 1)
@@ -291,36 +176,49 @@ namespace BarPlus.Views
             }
             else
             {
+                double priceOne;
+                string lblTotal;
+                var selectedStockObject = lv_Users.SelectedItems[0] as MyItem;
+                if (selectedStockObject == null)
+                {
+                    return;
+                }
+
+                priceOne = selectedStockObject.Price;
+                lblTotal = lbl_totale.Content.ToString();
+                lbl_totale.Content = funcDLL.Func.TotalSumMinus(priceOne, lblTotal);
+
+                
                 lv_Users.Items.RemoveAt(index);
             }
             
         }
 
-        private void btn_multi(object sender, RoutedEventArgs e)
+        private void Btn_multi(object sender, RoutedEventArgs e)
         {
-            if(tb_kassa.Text != "0")
+            if(tb_kassa.Text == "0")
             {
                 lv_Users.SelectAll();
             }
 
         }
 
-        private void btn_minus(object sender, RoutedEventArgs e)
+        private void Btn_minus(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btn_plus(object sender, RoutedEventArgs e)
+        private void Btn_plus(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btn_click_result(object sender, RoutedEventArgs e)
+        private void Btn_click_result(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btn_click_comma(object sender, RoutedEventArgs e)
+        private void Btn_click_comma(object sender, RoutedEventArgs e)
         {
             //Variablen
             string tb = tb_kassa.Text.ToString();
@@ -332,11 +230,11 @@ namespace BarPlus.Views
             }
             else if (tb != "")
             {
-                tb_kassa.Text = tb_kassa.Text + comm.ToString();
+                tb_kassa.Text += comm.ToString();
             }
         }
 
-        private void btn_varie_click(object sender, RoutedEventArgs e)
+        private void Btn_varie_click(object sender, RoutedEventArgs e)
         {
             //Variable
             string tb =  tb_kassa.Text.ToString();
@@ -356,12 +254,11 @@ namespace BarPlus.Views
             {
                 priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
             }
-            this.lv_Users.Items.Add(new MyItem { product = "Varie 10%", price = priceTb });
+            this.lv_Users.Items.Add(new MyItem { Product = "Varie 10%", Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
-            //funcDLL.func.totalSum(priceTb, lblTotal);
 
-            lbl_totale.Content = funcDLL.func.totalSum(priceTb, lblTotal);
+            lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
 
 
 
@@ -383,11 +280,11 @@ namespace BarPlus.Views
                 return;
             }
 
-            priceOne = selectedStockObject.price;
+            priceOne = selectedStockObject.Price;
             lblTotal = lbl_totale.Content.ToString();
-            lbl_totale.Content = funcDLL.func.totalSumMinus(priceOne, lblTotal);
+            lbl_totale.Content = funcDLL.Func.TotalSumMinus(priceOne, lblTotal);
 
-            MessageBox.Show("Value: " + priceOne.ToString());
+            
             lv_Users.Items.RemoveAt(index);
             
 
@@ -399,7 +296,7 @@ namespace BarPlus.Views
             lbl_totale.Content = "0";
         }
 
-        private void btn_1_1(object sender, RoutedEventArgs e)
+        private void BStn_1_1(object sender, RoutedEventArgs e)
         {
             //create a MySQL connection with a query string
             MySqlConnection connection = new MySqlConnection("server=localhost;database=barplus;uid=root;password=mima10492");
@@ -412,11 +309,17 @@ namespace BarPlus.Views
             //close the connection
             connection.Close();
         }
+
+        private void Btn_1_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
     internal class MyItem
     {
-        public String product { get; set; }
-        public double price { get; set; }
+        public String Product { get; set; }
+        public double Price { get; set; }
+        public int Puantity { get; set; }
     }
 }
