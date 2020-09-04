@@ -62,7 +62,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Class\totalValue.cs" />
     <Compile Include="Viewmodels\BarMenuViewModel.cs" />
     <Compile Include="Viewmodels\ConfigurationViewModel.cs" />
     <Compile Include="Viewmodels\MainViewModel.cs" />
@@ -139,8 +138,15 @@
     <Resource Include="Assets\Images\logo_mima.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Class\" />
     <Folder Include="Models\" />
     <Folder Include="SQL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\funcDLL\funcDLL.csproj">
+      <Project>{20b6af7f-974e-4f5e-9b96-328f6ca571d1}</Project>
+      <Name>funcDLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

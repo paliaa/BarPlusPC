@@ -20,6 +20,11 @@ namespace BarPlus.Views
     /// <summary>
     /// Interaktionslogik für BarMenu.xaml
     /// </summary>
+    /// 
+    //Einbinden einer DLL-Datei
+    using BarPlus.funcDLL;
+
+
     public partial class BarMenu : UserControl
     {
         public BarMenu()
@@ -338,6 +343,7 @@ namespace BarPlus.Views
             char[] separator = {'.',','};
             Int32 count = 2;
             Double priceTb;
+            String lblTotal;
 
             //Todo Null bei einstelliger Decimal hinzufügen
             String[] strlist = tb.Split(separator, count, StringSplitOptions.None);
@@ -352,6 +358,12 @@ namespace BarPlus.Views
             }
             this.lv_Users.Items.Add(new MyItem { product = "Varie 10%", price = priceTb });
 
+            lblTotal = lbl_totale.Content.ToString();
+            //funcDLL.func.totalSum(priceTb, lblTotal);
+
+            lbl_totale.Content = funcDLL.func.totalSum(priceTb, lblTotal);
+
+
 
 
             //Textbox zurücksetzen
@@ -362,12 +374,29 @@ namespace BarPlus.Views
         private void Lvi_loeschen(object sender, RoutedEventArgs e)
         {
             var index = lv_Users.Items.IndexOf(lv_Users.SelectedItem);
+            
+            double priceOne;
+            string lblTotal;
+            var selectedStockObject = lv_Users.SelectedItems[0] as MyItem;
+            if (selectedStockObject == null)
+            {
+                return;
+            }
+
+            priceOne = selectedStockObject.price;
+            lblTotal = lbl_totale.Content.ToString();
+            lbl_totale.Content = funcDLL.func.totalSumMinus(priceOne, lblTotal);
+
+            MessageBox.Show("Value: " + priceOne.ToString());
             lv_Users.Items.RemoveAt(index);
+            
+
         }
 
-        private void Lvi_alleloeschen(object sender, RoutedEventArgs e)
+            private void Lvi_alleloeschen(object sender, RoutedEventArgs e)
         {
             lv_Users.Items.Clear();
+            lbl_totale.Content = "0";
         }
 
         private void btn_1_1(object sender, RoutedEventArgs e)
