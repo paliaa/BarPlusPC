@@ -29,7 +29,7 @@ namespace BarPlus.Views
         public partial class BarMenu : UserControl
     {
         //globale Variable
-        public static int quantity;
+        public static int quantity = 1;
 
         public BarMenu()
         {
@@ -200,6 +200,11 @@ namespace BarPlus.Views
             {
                 lv_Users.SelectAll();
             }
+            else
+            {
+                quantity = int.Parse(tb_kassa.Text);
+                tb_kassa.Text = "0";
+            }
 
         }
 
@@ -254,7 +259,9 @@ namespace BarPlus.Views
             {
                 priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
             }
-            this.lv_Users.Items.Add(new MyItem { Product = "Varie 10%", Price = priceTb });
+            priceTb = priceTb * quantity;
+
+            this.lv_Users.Items.Add(new MyItem { Product = "Varie 10%", Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
@@ -266,6 +273,7 @@ namespace BarPlus.Views
             //Textbox zurücksetzen
             tb_kassa.Clear();
             tb_kassa.Text = "0";
+            quantity = 1;
         }
 
         private void Lvi_loeschen(object sender, RoutedEventArgs e)
@@ -320,6 +328,6 @@ namespace BarPlus.Views
     {
         public String Product { get; set; }
         public double Price { get; set; }
-        public int Puantity { get; set; }
+        public int Quantity { get; set; }
     }
 }

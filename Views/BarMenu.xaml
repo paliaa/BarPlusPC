@@ -214,7 +214,7 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn x:Name="v_Product" DisplayMemberBinding="{Binding Product}"  Header="Prodotto" Width="180" />
-                        <GridViewColumn x:Name="v_Quantity" DisplayMemberBinding="{Binding Puantity}" Header="Qu." Width="30"/>
+                        <GridViewColumn x:Name="v_Quantity" DisplayMemberBinding="{Binding Quantity}" Header="Qu." Width="30"/>
                         <GridViewColumn x:Name="v_Price" DisplayMemberBinding="{Binding Price}" Header="Prezzo" Width="50" />
                     </GridView>
                 </ListView.View>
