@@ -36,6 +36,7 @@ namespace BarPlus.Views
         public BarMenu()
         {
             InitializeComponent();
+            #region Fill all button
             try
             {
                 //generate the connection string
@@ -54,8 +55,8 @@ namespace BarPlus.Views
                 string countGroup = cmdgroup.ExecuteScalar().ToString();
                 string countProducts = cmdproducts.ExecuteScalar().ToString();
 
-                Console.WriteLine("Wert: " + countGroup);
-                Console.WriteLine("Wert: " + countProducts);
+                Console.WriteLine("Wert countGroup: " + countGroup);
+                Console.WriteLine("Wert countProducts: " + countProducts);
 
                 //close the connection
                 connection.Close();
@@ -91,12 +92,11 @@ namespace BarPlus.Views
                             try
                             {
                                 //MySQLCommand
-                                //MySqlCommand productName = new MySqlCommand(@"select p_name from t_products WHERE p_groupid = @i AND p_id = @j", connection);
-                                string query
-                                MySqlCommand productName = new MySqlCommand("select p_name from t_products WHERE p_id = '" + j + "' AND p_groupid = '" + i, connection);
-                                //productName.Parameters.Add("@i", (MySqlDbType)SqlDbType.Int).Value = i; //your id parameter!
-                                //productName.Parameters.Add("@j", (MySqlDbType)SqlDbType.Int).Value = j; //your id parameter!
+                                string queryProductName = "select p_name from t_products WHERE p_groupid = " + i + " AND p_id = " + j;
+                                Console.WriteLine("Test: " + queryProductName);
 
+                                MySqlCommand productName = new MySqlCommand("select p_name from t_products WHERE p_groupid = '" + i + "' AND p_id = '" + j + "'", connection);
+                                
                                 connection.Open();
 
                                 string nameProduct = productName.ExecuteScalar().ToString();
@@ -124,16 +124,7 @@ namespace BarPlus.Views
             {
                 MessageBox.Show(ex.ToString());
             }
-        }
-
-        public static string CreateConnStr(string server, string databaseName, string user, string pass)
-        {
-            //build the connection string
-            string connStr = "server=" + server + ";database=" + databaseName + ";uid=" +
-                user + ";password=" + pass + ";";
-
-            //return the connection string
-            return connStr;
+            #endregion
         }
 
         #region Btn_click_1

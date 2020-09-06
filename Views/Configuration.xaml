@@ -23,6 +23,12 @@
                         <TextBlock Text="Prodotti" Foreground="Blue" />
                     </StackPanel>
                 </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                </Grid>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
