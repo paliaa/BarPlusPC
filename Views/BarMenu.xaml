@@ -248,12 +248,12 @@
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
                         <Button Content="Espresso" Name="prod_1_1" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" Click="Btn_1_1" />
-                        <Button Content="Espresso" Name="prod_1_2" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_3" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_4" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_5" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_6" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
-                        <Button Content="Espresso" Name="prod_1_7" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" />
+                        <Button Content="Espresso" Name="prod_1_2" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" Click="Btn_1_2" />
+                        <Button Content="Espresso" Name="prod_1_3" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" Click="Btn_1_3" />
+                        <Button Content="Espresso" Name="prod_1_4" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" Click="Btn_1_4" />
+                        <Button Content="Espresso" Name="prod_1_5" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" Click="Btn_1_5" />
+                        <Button Content="Espresso" Name="prod_1_6" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" Click="Btn_1_6" />
+                        <Button Content="Espresso" Name="prod_1_7" Visibility="Hidden" FontSize="15" Width="100" Height="100" Margin="5" Click="Btn_1_7" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <!-- items -->
