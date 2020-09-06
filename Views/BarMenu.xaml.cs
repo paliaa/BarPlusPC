@@ -30,6 +30,8 @@ namespace BarPlus.Views
     {
         //globale Variable
         public static int quantity = 1;
+        public Button buttonName;
+        public TextBlock textBlockName;
 
         public BarMenu()
         {
@@ -42,19 +44,81 @@ namespace BarPlus.Views
                 //create a MySQL connection with a query string
                 MySqlConnection connection = new MySqlConnection(connectionString);
 
-                MySqlCommand cmd = new MySqlCommand("select Count(*) from t_group", connection);
+                //MySQLCommand
+                MySqlCommand cmdgroup = new MySqlCommand(@"select Count(*) from t_group", connection);
+                MySqlCommand cmdproducts = new MySqlCommand("select Count(*) from t_products", connection);
 
                 //open the connection
                 connection.Open();
 
-                string resultcount = cmd.ExecuteScalar().ToString();
+                string countGroup = cmdgroup.ExecuteScalar().ToString();
+                string countProducts = cmdproducts.ExecuteScalar().ToString();
 
-                Console.WriteLine("Wert: " + resultcount);
+                Console.WriteLine("Wert: " + countGroup);
+                Console.WriteLine("Wert: " + countProducts);
 
                 //close the connection
                 connection.Close();
 
-                int iCount = int.Parse(resultcount);
+                int iCountGroup = int.Parse(countGroup);
+                int iCountProducts = int.Parse(countProducts);
+
+                for(int i = 1; i <= iCountGroup; i++)
+                {
+                    textBlockName = this.FindName("Group" + i) as TextBlock;
+
+                    Console.WriteLine("TextBox.Text: " + textBlockName.Text);
+                    try
+                    {
+                        //MySQLCommand
+                        MySqlCommand groupName = new MySqlCommand(@"select g_name from t_group WHERE g_id = @i", connection);
+                        groupName.Parameters.Add("@i", (MySqlDbType)SqlDbType.Int).Value = i; //your id parameter!
+
+
+                        connection.Open();
+
+                        string nameGroup = groupName.ExecuteScalar().ToString();
+
+                        connection.Close();
+
+                        textBlockName.Text = nameGroup;
+                        textBlockName.Visibility = Visibility.Visible;
+                        
+                        for(int j = 1; j <= iCountProducts; j++)
+                        {
+
+                            buttonName = this.FindName("prod_" + i + "_" + j) as Button;
+                            try
+                            {
+                                //MySQLCommand
+                                //MySqlCommand productName = new MySqlCommand(@"select p_name from t_products WHERE p_groupid = @i AND p_id = @j", connection);
+                                string query
+                                MySqlCommand productName = new MySqlCommand("select p_name from t_products WHERE p_id = '" + j + "' AND p_groupid = '" + i, connection);
+                                //productName.Parameters.Add("@i", (MySqlDbType)SqlDbType.Int).Value = i; //your id parameter!
+                                //productName.Parameters.Add("@j", (MySqlDbType)SqlDbType.Int).Value = j; //your id parameter!
+
+                                connection.Open();
+
+                                string nameProduct = productName.ExecuteScalar().ToString();
+
+                                connection.Close();
+
+                                buttonName.Content = nameProduct;
+                                buttonName.Visibility = Visibility.Visible;
+                            }
+                            catch(Exception ex)
+                            {
+                                MessageBox.Show(ex.ToString());
+                            }
+                            
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+                
             } 
             catch (Exception ex)
             {
@@ -72,6 +136,7 @@ namespace BarPlus.Views
             return connStr;
         }
 
+        #region Btn_click_1
         private void Btn_click_1(object sender, RoutedEventArgs e)
         {
             //Variablen
@@ -81,7 +146,9 @@ namespace BarPlus.Views
             tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
 
         }
+        #endregion
 
+        #region Btn_click_2
         private void Btn_click_2(object sender, RoutedEventArgs e)
         {
             //Variablen
@@ -90,6 +157,9 @@ namespace BarPlus.Views
 
             tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
+        #endregion
+
+        #region Btn_click_3
         private void Btn_click_3(object sender, RoutedEventArgs e)
         {
             //Variablen
@@ -98,6 +168,9 @@ namespace BarPlus.Views
 
             tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
+        #endregion
+
+        #region Btn_click_4
         private void Btn_click_4(object sender, RoutedEventArgs e)
         {
             //Variablen
@@ -106,6 +179,9 @@ namespace BarPlus.Views
 
             tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
+        #endregion
+
+        #region Btn_click_5
         private void Btn_click_5(object sender, RoutedEventArgs e)
         {
             //Variablen
@@ -114,6 +190,9 @@ namespace BarPlus.Views
 
             tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
+        #endregion
+
+        #region Btn_click_6
         private void Btn_click_6(object sender, RoutedEventArgs e)
         {
             //Variablen
@@ -122,6 +201,9 @@ namespace BarPlus.Views
 
             tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
+        #endregion
+
+        #region Btn_click_7
         private void Btn_click_7(object sender, RoutedEventArgs e)
         {
             //Variablen
@@ -130,6 +212,9 @@ namespace BarPlus.Views
 
             tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
+        #endregion
+
+        #region Btn_click_8
         private void Btn_click_8(object sender, RoutedEventArgs e)
         {
             //Variablen
@@ -138,6 +223,9 @@ namespace BarPlus.Views
 
             tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
+        #endregion
+
+        #region Btn_click_9
         private void Btn_click_9(object sender, RoutedEventArgs e)
         {
             //Variablen
@@ -146,6 +234,9 @@ namespace BarPlus.Views
 
             tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
+        #endregion
+
+        #region Btn_click_0
         private void Btn_click_0(object sender, RoutedEventArgs e)
         {
             //Variablen
@@ -154,7 +245,9 @@ namespace BarPlus.Views
 
             tb_kassa.Text = funcDLL.Func.NumPadIns(tb, num);
         }
+        #endregion
 
+        #region Btn_del
         private void Btn_del(object sender, RoutedEventArgs e)
         {
             //Variablen
@@ -193,7 +286,9 @@ namespace BarPlus.Views
             }
             
         }
+        #endregion
 
+        #region Btn_multi
         private void Btn_multi(object sender, RoutedEventArgs e)
         {
             if(tb_kassa.Text == "0")
@@ -207,22 +302,30 @@ namespace BarPlus.Views
             }
 
         }
+        #endregion
 
+        #region Btn_minus
         private void Btn_minus(object sender, RoutedEventArgs e)
         {
 
         }
+        #endregion
 
+        #region Btn_plus
         private void Btn_plus(object sender, RoutedEventArgs e)
         {
 
         }
+        #endregion
 
+        #region Btn_click_result
         private void Btn_click_result(object sender, RoutedEventArgs e)
         {
 
         }
+        #endregion
 
+        #region Btn_click_comma
         private void Btn_click_comma(object sender, RoutedEventArgs e)
         {
             //Variablen
@@ -238,7 +341,9 @@ namespace BarPlus.Views
                 tb_kassa.Text += comm.ToString();
             }
         }
+        #endregion
 
+        #region Btn_varie_click
         private void Btn_varie_click(object sender, RoutedEventArgs e)
         {
             //Variable
@@ -275,7 +380,9 @@ namespace BarPlus.Views
             tb_kassa.Text = "0";
             quantity = 1;
         }
+        #endregion
 
+        #region Lvi_loeschen
         private void Lvi_loeschen(object sender, RoutedEventArgs e)
         {
             var index = lv_Users.Items.IndexOf(lv_Users.SelectedItem);
@@ -303,20 +410,7 @@ namespace BarPlus.Views
             lv_Users.Items.Clear();
             lbl_totale.Content = "0";
         }
-
-        private void BStn_1_1(object sender, RoutedEventArgs e)
-        {
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection("server=localhost;database=barplus;uid=root;password=mima10492");
-
-            //open the connection
-            connection.Open();
-
-
-
-            //close the connection
-            connection.Close();
-        }
+        #endregion
 
         private void Btn_1_1(object sender, RoutedEventArgs e)
         {

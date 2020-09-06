@@ -240,8 +240,8 @@
         <TabControl Grid.Row="1" Grid.Column="1">
             <TabItem>
                 <TabItem.Header>
-                    <StackPanel Orientation="Horizontal" Visibility="Hidden">
-                        <TextBlock Text="Group1" Name="Group1" Foreground="Blue" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Group1" Name="Group1" Foreground="Blue" Visibility="Hidden" />
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
