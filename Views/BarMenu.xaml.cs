@@ -46,7 +46,7 @@ namespace BarPlus.Views
                 MySqlConnection connection = new MySqlConnection(connectionString);
 
                 //MySQLCommand
-                MySqlCommand cmdgroup = new MySqlCommand(@"select Count(*) from t_group", connection);
+                MySqlCommand cmdgroup = new MySqlCommand("select Count(*) from t_group", connection);
                 MySqlCommand cmdproducts = new MySqlCommand("select Count(*) from t_products", connection);
 
                 //open the connection
@@ -453,12 +453,17 @@ namespace BarPlus.Views
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_2(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 2;
+            char[] separator = { '.', ',' };
+            Int32 count = 2;
+            Double priceTb;
+            String lblTotal;
 
             //generate the connection string
             string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
@@ -483,12 +488,6 @@ namespace BarPlus.Views
             //close the connection
             connection.Close();
 
-
-            char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
-            String lblTotal;
-
             //Todo Null bei einstelliger Decimal hinzufügen
             String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
 
@@ -507,11 +506,16 @@ namespace BarPlus.Views
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
         private void Btn_1_3(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 3;
+            char[] separator = { '.', ',' };
+            Int32 count = 2;
+            Double priceTb;
+            String lblTotal;
 
             //generate the connection string
             string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
@@ -536,12 +540,6 @@ namespace BarPlus.Views
             //close the connection
             connection.Close();
 
-
-            char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
-            String lblTotal;
-
             //Todo Null bei einstelliger Decimal hinzufügen
             String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
 
@@ -560,6 +558,7 @@ namespace BarPlus.Views
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_4(object sender, RoutedEventArgs e)
