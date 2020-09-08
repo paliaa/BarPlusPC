@@ -47,22 +47,22 @@ namespace BarPlus.Views
 
                 //MySQLCommand
                 MySqlCommand cmdgroup = new MySqlCommand("select Count(*) from t_group", connection);
-                MySqlCommand cmdproducts = new MySqlCommand("select Count(*) from t_products", connection);
+                //MySqlCommand cmdproducts = new MySqlCommand("select Count(*) from t_products", connection);
 
                 //open the connection
                 connection.Open();
 
                 string countGroup = cmdgroup.ExecuteScalar().ToString();
-                string countProducts = cmdproducts.ExecuteScalar().ToString();
+                //string countProducts = cmdproducts.ExecuteScalar().ToString();
 
                 Console.WriteLine("Wert countGroup: " + countGroup);
-                Console.WriteLine("Wert countProducts: " + countProducts);
+                
 
                 //close the connection
                 connection.Close();
 
                 int iCountGroup = int.Parse(countGroup);
-                int iCountProducts = int.Parse(countProducts);
+                //int iCountProducts = int.Parse(countProducts);
 
                 for(int i = 1; i <= iCountGroup; i++)
                 {
@@ -84,8 +84,24 @@ namespace BarPlus.Views
 
                         textBlockName.Text = nameGroup;
                         textBlockName.Visibility = Visibility.Visible;
-                        
-                        for(int j = 1; j <= iCountProducts; j++)
+
+                        //CREATE STATEMENT
+                        string prodStatement = "select Count(*) from t_products WHERE p_groupid = " + i;
+                        MySqlCommand cmdproducts = new MySqlCommand(prodStatement, connection);
+
+                        //open the connection
+                        connection.Open();
+
+                        string countProducts = cmdproducts.ExecuteScalar().ToString();
+
+                        connection.Close();
+                        Console.WriteLine("Wert countProducts: " + countProducts);
+
+                        int iCountProducts = int.Parse(countProducts);
+
+
+
+                        for (int j = 1; j <= iCountProducts; j++)
                         {
 
                             buttonName = this.FindName("prod_" + i + "_" + j) as Button;
