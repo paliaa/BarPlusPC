@@ -47,17 +47,14 @@ namespace BarPlus.Views
 
                 //MySQLCommand
                 MySqlCommand cmdgroup = new MySqlCommand("select Count(*) from t_group", connection);
-                //MySqlCommand cmdproducts = new MySqlCommand("select Count(*) from t_products", connection);
 
                 //open the connection
                 connection.Open();
 
                 string countGroup = cmdgroup.ExecuteScalar().ToString();
-                //string countProducts = cmdproducts.ExecuteScalar().ToString();
 
                 Console.WriteLine("Wert countGroup: " + countGroup);
                 
-
                 //close the connection
                 connection.Close();
 
