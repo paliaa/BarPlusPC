@@ -26,7 +26,7 @@ namespace BarPlus.Views
     //Einbinden einer DLL-Datei
     using BarPlus.funcDLL;
 
-        public partial class BarMenu : UserControl
+    public partial class BarMenu : UserControl
     {
         //globale Variable
         public static int quantity = 1;
@@ -36,6 +36,9 @@ namespace BarPlus.Views
         public BarMenu()
         {
             InitializeComponent();
+
+            //funcDLL.Func.LogWrite_Error("Test");
+
             #region Fill all button
             try
             {
@@ -416,6 +419,7 @@ namespace BarPlus.Views
         }
         #endregion
 
+        #region All groups
         #region Group1
         private void Btn_1_1(object sender, RoutedEventArgs e)
         {
@@ -19184,6 +19188,7 @@ namespace BarPlus.Views
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
         }
+        #endregion
         #endregion
     }
 
