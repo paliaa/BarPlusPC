@@ -37,7 +37,7 @@ namespace BarPlus.Views
         {
             InitializeComponent();
 
-            //funcDLL.Func.LogWrite_Error("Test");
+            funcDLL.Func.LogWrite_Error("Test");
 
             #region Fill all button
             try
