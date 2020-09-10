@@ -37,7 +37,7 @@ namespace BarPlus.Views
         {
             InitializeComponent();
 
-            funcDLL.Func.LogWrite_Error("Test");
+            funcDLL.Func.LogWrite_Info("View BarMenu wurde gestartet");
 
             #region Fill all button
             try
@@ -56,8 +56,8 @@ namespace BarPlus.Views
 
                 string countGroup = cmdgroup.ExecuteScalar().ToString();
 
-                Console.WriteLine("Wert countGroup: " + countGroup);
-                
+                funcDLL.Func.LogWrite_Info("View Bar - Menu: Gruppenanzahl: " + countGroup);
+
                 //close the connection
                 connection.Close();
 
@@ -93,7 +93,7 @@ namespace BarPlus.Views
                         connection.Open();
 
                         string countProducts = cmdproducts.ExecuteScalar().ToString();
-
+                        funcDLL.Func.LogWrite_Info("View Bar - Menu: Produkteanzahl: " + countProducts);
                         connection.Close();
                         Console.WriteLine("Wert countProducts: " + countProducts);
 

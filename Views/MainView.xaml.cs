@@ -24,6 +24,8 @@ namespace BarPlus.Views
         public MainView()
         {
             InitializeComponent();
+
+            funcDLL.Func.LogWrite_Info("View MainView wurde gestartet");
         }
 
         private void Btn_kassa_Click(object sender, RoutedEventArgs e)

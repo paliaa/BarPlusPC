@@ -25,6 +25,7 @@ namespace BarPlus.Views
         {
             InitializeComponent();
 
+            funcDLL.Func.LogWrite_Info("View Configuration wurde gestartet");
             //Load all the configurations from DB
             try
             {

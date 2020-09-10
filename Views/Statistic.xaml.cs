@@ -23,6 +23,7 @@ namespace BarPlus.Views
         public Statistic()
         {
             InitializeComponent();
+            funcDLL.Func.LogWrite_Info("View Statistic wurde gestartet");
         }
     }
 }
