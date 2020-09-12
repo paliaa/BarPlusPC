@@ -36,7 +36,7 @@ namespace BarPlus.Views
                 //create a MySQL connection with a query string
                 MySqlConnection connection = new MySqlConnection(connectionString);
 
-                MySqlCommand cmd = new MySqlCommand("select * from t_products", connection);
+                MySqlCommand cmd = new MySqlCommand("select p_id AS PRODNR, p_name as NOME, p_groupid AS GROUDNR, p_price AS PREZZO, p_ivaid AS IVA from t_products", connection);
 
                 //open the connection
                 connection.Open();
