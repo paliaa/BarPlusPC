@@ -49,7 +49,7 @@ namespace BarPlus.Views
                 MySqlConnection connection = new MySqlConnection(connectionString);
 
                 //MySQLCommand
-                MySqlCommand cmdgroup = new MySqlCommand("select Count(*) from t_group", connection);
+                MySqlCommand cmdgroup = new MySqlCommand("select Count(*) from t_groups", connection);
 
                 //open the connection
                 connection.Open();
@@ -72,7 +72,7 @@ namespace BarPlus.Views
                     try
                     {
                         //MySQLCommand
-                        MySqlCommand groupName = new MySqlCommand(@"select g_name from t_group WHERE g_id = @i", connection);
+                        MySqlCommand groupName = new MySqlCommand(@"select g_name from t_groups WHERE g_id = @i", connection);
                         groupName.Parameters.Add("@i", (MySqlDbType)SqlDbType.Int).Value = i; //your id parameter!
 
 

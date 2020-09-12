@@ -45,7 +45,7 @@
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Prodotti/Gruppi" Foreground="Blue" />
+                        <TextBlock Text="Prodotti/Gruppi/IVA" Foreground="Blue" />
                     </StackPanel>
                 </TabItem.Header>
                 <Grid>
@@ -55,9 +55,16 @@
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
-                    <DataGrid x:Name="dtGridProd" ItemsSource="{Binding}">
+                    <DataGrid x:Name="dtGridProd" Grid.RowSpan="2" ItemsSource="{Binding}">
                         
+                    </DataGrid>
+                    <DataGrid x:Name="dtGridGroup" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding}">
+                        
+                    </DataGrid>
+                    <DataGrid x:Name="dtGridIva" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding}">
+
                     </DataGrid>
                 </Grid>
             </TabItem>
@@ -77,8 +84,9 @@
             </TabItem>
         </TabControl>
         
-        <Button Content="Salva" Grid.Row="1" Grid.Column="1" Width="75" Height="30" HorizontalAlignment="Right" Margin="10,10,10,10" ></Button>
-        <Button Content="Cancel" Grid.Row="1" Grid.Column="1" Width="75" Height="30" HorizontalAlignment="Right" Margin="10,10,100,10" ></Button>
+        <Button Content="Nuovo" Grid.Row="2" Grid.Column="1" Width="75" Height="30" HorizontalAlignment="Right" Margin="10,10,10,10" ></Button>
+        <Button Content="Modificare" Grid.Row="2" Grid.Column="1" Width="75" Height="30" HorizontalAlignment="Right" Margin="10,10,100,10" ></Button>
+        <Button Content="Cancellare" Grid.Row="2" Grid.Column="1" Width="75" Height="30" HorizontalAlignment="Right" Margin="10,10,190,10" ></Button>
         <Label Content="Loading..." x:Name="lbl_loading" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="Hidden"></Label>
         <ProgressBar Grid.Row="1" Grid.Column="0" Margin="75,10,10,10" Visibility="Hidden"></ProgressBar>
     </Grid>

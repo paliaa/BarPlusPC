@@ -36,18 +36,23 @@ namespace BarPlus.Views
                 //create a MySQL connection with a query string
                 MySqlConnection connection = new MySqlConnection(connectionString);
 
-                MySqlCommand cmd = new MySqlCommand("select p_id AS PRODNR, p_name as NOME, p_groupid AS GROUDNR, p_price AS PREZZO, p_ivaid AS IVA from t_products", connection);
+                MySqlCommand cmdProd = new MySqlCommand("select p_id AS PRODNR, p_name as NOME, p_groupid AS GROUDNR, p_price AS PREZZO, p_ivaid AS IVA from t_products", connection);
+                MySqlCommand cmdGroup = new MySqlCommand("SELECT g_id as ID, g_name AS NOME, g_uscita AS USCITA FROM t_groups", connection);
 
                 //open the connection
                 connection.Open();
 
-                DataTable dt = new DataTable();
-                dt.Load(cmd.ExecuteReader());
+                DataTable dtprod = new DataTable();
+                DataTable dtgroup = new DataTable();
+
+                dtprod.Load(cmdProd.ExecuteReader());
+                dtgroup.Load(cmdGroup.ExecuteReader());
 
                 //close the connection
                 connection.Close();
 
-                dtGridProd.DataContext = dt;
+                dtGridProd.DataContext = dtprod;
+                dtGridGroup.DataContext = dtgroup;
                 
             }
             catch (Exception ex)
