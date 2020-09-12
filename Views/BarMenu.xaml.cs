@@ -427,7 +427,7 @@ namespace BarPlus.Views
             int prod = 1;
             char[] separator = { '.', ',' };
             Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
 
             //generate the connection string
@@ -437,24 +437,24 @@ namespace BarPlus.Views
             MySqlConnection connection = new MySqlConnection(connectionString);
 
             //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
+            //string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
             string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
 
             //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
+            //MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
             MySqlCommand cmdName = new MySqlCommand(getName, connection);
 
             //open the connection
             connection.Open();
 
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
+            //string prodPrice = cmdPrice.ExecuteScalar().ToString();
             string prodName = cmdName.ExecuteScalar().ToString();
 
             //close the connection
             connection.Close();
 
             //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
+            /*String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
 
             if (prodPrice.Contains(",") == false)
             {
@@ -463,8 +463,8 @@ namespace BarPlus.Views
             else
             {
                 priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            }*/
+            priceTb = funcDLL.Func.getPrice(group,prod,priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
