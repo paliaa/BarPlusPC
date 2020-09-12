@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace BarPlus.Views
 {
@@ -35,28 +36,19 @@ namespace BarPlus.Views
                 //create a MySQL connection with a query string
                 MySqlConnection connection = new MySqlConnection(connectionString);
 
-                MySqlCommand cmd = new MySqlCommand("select Count(*) from t_group", connection);
+                MySqlCommand cmd = new MySqlCommand("select * from t_products", connection);
 
                 //open the connection
                 connection.Open();
 
-                string resultcount = cmd.ExecuteScalar().ToString();
-
-                Console.WriteLine("Wert: " + resultcount);
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
 
                 //close the connection
                 connection.Close();
 
-                int iCount = int.Parse(resultcount);
-
-                if (resultcount != "0")
-                {
-                    for (int i = 0; i <= iCount; i++)
-                    {
-
-                    }
-
-                }
+                dtGridProd.DataContext = dt;
+                
             }
             catch (Exception ex)
             {
