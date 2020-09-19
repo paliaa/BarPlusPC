@@ -37,7 +37,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button Content="Statistik" x:Name="btn_statistik" Grid.Column="1" Grid.Row="0" FontSize="35" Margin="75,100,75,100" Background="Transparent" Click="Click_statistic">
+        <Button Content="Statistica" x:Name="btn_statistik" Grid.Column="1" Grid.Row="0" FontSize="35" Margin="75,100,75,100" Background="Transparent" Click="Click_statistic">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Template">
