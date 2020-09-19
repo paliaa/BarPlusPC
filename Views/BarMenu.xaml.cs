@@ -426,44 +426,11 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 1;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
             Double priceTb = 0.0;
             String lblTotal;
+            string prodName = ""; 
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            //string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            //MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            //string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            /*String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }*/
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
             priceTb = funcDLL.Func.getPrice(group,prod,priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
@@ -479,45 +446,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 2;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -532,45 +466,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 3;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -584,216 +485,80 @@ namespace BarPlus.Views
         {
             int group = 1;
             int prod = 4;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_5(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 5;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_6(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 6;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_7(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 7;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_8(object sender, RoutedEventArgs e)
@@ -801,45 +566,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 8;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -854,45 +586,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 9;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -907,45 +606,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 10;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -959,216 +625,80 @@ namespace BarPlus.Views
         {
             int group = 1;
             int prod = 11;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_12(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 12;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_13(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 13;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_14(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 14;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_15(object sender, RoutedEventArgs e)
@@ -1176,45 +706,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 15;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -1229,45 +726,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 16;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -1282,45 +746,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 17;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -1334,216 +765,80 @@ namespace BarPlus.Views
         {
             int group = 1;
             int prod = 18;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_19(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 19;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_20(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 20;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_21(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 21;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_22(object sender, RoutedEventArgs e)
@@ -1551,45 +846,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 22;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -1604,45 +866,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 23;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -1657,45 +886,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 24;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -1709,216 +905,80 @@ namespace BarPlus.Views
         {
             int group = 1;
             int prod = 25;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_26(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 26;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_27(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 27;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_28(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 28;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_29(object sender, RoutedEventArgs e)
@@ -1926,45 +986,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 29;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -1979,45 +1006,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 30;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -2032,45 +1026,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 31;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -2084,216 +1045,80 @@ namespace BarPlus.Views
         {
             int group = 1;
             int prod = 32;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_33(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 33;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_34(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 34;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_1_35(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 35;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
         #endregion
 
@@ -2303,45 +1128,12 @@ namespace BarPlus.Views
             int group = 2;
             int prod = 1;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -2356,45 +1148,12 @@ namespace BarPlus.Views
             int group = 2;
             int prod = 2;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -2409,45 +1168,12 @@ namespace BarPlus.Views
             int group = 2;
             int prod = 3;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -2461,216 +1187,80 @@ namespace BarPlus.Views
         {
             int group = 2;
             int prod = 4;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_5(object sender, RoutedEventArgs e)
         {
             int group = 2;
             int prod = 5;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_6(object sender, RoutedEventArgs e)
         {
             int group = 2;
             int prod = 6;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_7(object sender, RoutedEventArgs e)
         {
             int group = 2;
             int prod = 7;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_8(object sender, RoutedEventArgs e)
@@ -2678,45 +1268,12 @@ namespace BarPlus.Views
             int group = 2;
             int prod = 8;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -2731,45 +1288,12 @@ namespace BarPlus.Views
             int group = 2;
             int prod = 9;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -2784,45 +1308,12 @@ namespace BarPlus.Views
             int group = 2;
             int prod = 10;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -2836,216 +1327,80 @@ namespace BarPlus.Views
         {
             int group = 2;
             int prod = 11;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_12(object sender, RoutedEventArgs e)
         {
             int group = 2;
             int prod = 12;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_13(object sender, RoutedEventArgs e)
         {
             int group = 2;
             int prod = 13;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_14(object sender, RoutedEventArgs e)
         {
             int group = 2;
             int prod = 14;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_15(object sender, RoutedEventArgs e)
@@ -3053,45 +1408,12 @@ namespace BarPlus.Views
             int group = 2;
             int prod = 15;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -3106,45 +1428,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 16;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -3159,45 +1448,12 @@ namespace BarPlus.Views
             int group = 2;
             int prod = 17;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -3211,216 +1467,80 @@ namespace BarPlus.Views
         {
             int group = 2;
             int prod = 18;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_19(object sender, RoutedEventArgs e)
         {
             int group = 2;
             int prod = 19;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_20(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 20;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_21(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 21;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_22(object sender, RoutedEventArgs e)
@@ -3428,45 +1548,12 @@ namespace BarPlus.Views
             int group = 2;
             int prod = 22;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -3481,45 +1568,12 @@ namespace BarPlus.Views
             int group = 2;
             int prod = 23;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -3534,45 +1588,12 @@ namespace BarPlus.Views
             int group = 2;
             int prod = 24;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -3586,216 +1607,80 @@ namespace BarPlus.Views
         {
             int group = 2;
             int prod = 25;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_26(object sender, RoutedEventArgs e)
         {
             int group = 2;
             int prod = 26;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_27(object sender, RoutedEventArgs e)
         {
             int group = 2;
             int prod = 27;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_28(object sender, RoutedEventArgs e)
         {
             int group = 2;
             int prod = 28;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_29(object sender, RoutedEventArgs e)
@@ -3803,45 +1688,12 @@ namespace BarPlus.Views
             int group = 2;
             int prod = 29;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -3856,45 +1708,12 @@ namespace BarPlus.Views
             int group = 2;
             int prod = 30;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -3909,45 +1728,12 @@ namespace BarPlus.Views
             int group = 2;
             int prod = 31;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -3961,216 +1747,80 @@ namespace BarPlus.Views
         {
             int group = 2;
             int prod = 32;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_33(object sender, RoutedEventArgs e)
         {
             int group = 2;
             int prod = 33;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_34(object sender, RoutedEventArgs e)
         {
             int group = 2;
             int prod = 34;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_2_35(object sender, RoutedEventArgs e)
         {
             int group = 2;
             int prod = 35;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
         #endregion
 
@@ -4180,45 +1830,12 @@ namespace BarPlus.Views
             int group = 3;
             int prod = 1;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -4233,45 +1850,12 @@ namespace BarPlus.Views
             int group = 3;
             int prod = 2;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -4286,45 +1870,12 @@ namespace BarPlus.Views
             int group = 3;
             int prod = 3;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -4338,216 +1889,80 @@ namespace BarPlus.Views
         {
             int group = 3;
             int prod = 4;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_5(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 5;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_6(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 6;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_7(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 7;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_8(object sender, RoutedEventArgs e)
@@ -4555,45 +1970,12 @@ namespace BarPlus.Views
             int group = 3;
             int prod = 8;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -4608,45 +1990,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 9;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -4661,45 +2010,12 @@ namespace BarPlus.Views
             int group = 3;
             int prod = 10;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -4713,216 +2029,80 @@ namespace BarPlus.Views
         {
             int group = 3;
             int prod = 11;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_12(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 12;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_13(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 13;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_14(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 14;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_15(object sender, RoutedEventArgs e)
@@ -4930,45 +2110,12 @@ namespace BarPlus.Views
             int group = 3;
             int prod = 15;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -4983,45 +2130,12 @@ namespace BarPlus.Views
             int group = 3;
             int prod = 16;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -5036,45 +2150,12 @@ namespace BarPlus.Views
             int group = 3;
             int prod = 17;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -5088,216 +2169,80 @@ namespace BarPlus.Views
         {
             int group = 3;
             int prod = 18;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_19(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 19;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_20(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 20;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_21(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 21;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_22(object sender, RoutedEventArgs e)
@@ -5305,45 +2250,12 @@ namespace BarPlus.Views
             int group = 3;
             int prod = 22;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -5358,45 +2270,12 @@ namespace BarPlus.Views
             int group = 3;
             int prod = 23;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -5411,45 +2290,12 @@ namespace BarPlus.Views
             int group = 3;
             int prod = 24;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -5463,216 +2309,80 @@ namespace BarPlus.Views
         {
             int group = 3;
             int prod = 25;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_26(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 26;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_27(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 27;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_28(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 28;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_29(object sender, RoutedEventArgs e)
@@ -5680,45 +2390,12 @@ namespace BarPlus.Views
             int group = 3;
             int prod = 29;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -5733,45 +2410,12 @@ namespace BarPlus.Views
             int group = 3;
             int prod = 30;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -5786,45 +2430,12 @@ namespace BarPlus.Views
             int group = 3;
             int prod = 31;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -5838,216 +2449,80 @@ namespace BarPlus.Views
         {
             int group = 1;
             int prod = 32;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_33(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 33;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_34(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 34;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_3_35(object sender, RoutedEventArgs e)
         {
             int group = 3;
             int prod = 35;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
         #endregion
 
@@ -6057,45 +2532,12 @@ namespace BarPlus.Views
             int group = 4;
             int prod = 1;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -6110,45 +2552,12 @@ namespace BarPlus.Views
             int group = 4;
             int prod = 2;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -6163,45 +2572,12 @@ namespace BarPlus.Views
             int group = 4;
             int prod = 3;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -6215,216 +2591,80 @@ namespace BarPlus.Views
         {
             int group = 4;
             int prod = 4;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_5(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 5;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_6(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 6;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_7(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 7;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_8(object sender, RoutedEventArgs e)
@@ -6432,45 +2672,12 @@ namespace BarPlus.Views
             int group = 4;
             int prod = 8;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -6485,45 +2692,12 @@ namespace BarPlus.Views
             int group = 4;
             int prod = 9;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -6538,45 +2712,12 @@ namespace BarPlus.Views
             int group = 4;
             int prod = 10;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -6590,216 +2731,80 @@ namespace BarPlus.Views
         {
             int group = 4;
             int prod = 11;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_12(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 12;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_13(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 13;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_14(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 14;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_15(object sender, RoutedEventArgs e)
@@ -6807,45 +2812,12 @@ namespace BarPlus.Views
             int group = 4;
             int prod = 15;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -6860,45 +2832,12 @@ namespace BarPlus.Views
             int group = 4;
             int prod = 16;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -6913,45 +2852,12 @@ namespace BarPlus.Views
             int group = 4;
             int prod = 17;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -6965,216 +2871,80 @@ namespace BarPlus.Views
         {
             int group = 4;
             int prod = 18;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_19(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 19;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_20(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 20;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_21(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 21;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_22(object sender, RoutedEventArgs e)
@@ -7182,45 +2952,12 @@ namespace BarPlus.Views
             int group = 4;
             int prod = 22;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -7235,45 +2972,12 @@ namespace BarPlus.Views
             int group = 4;
             int prod = 23;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -7288,45 +2992,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 24;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -7340,216 +3011,80 @@ namespace BarPlus.Views
         {
             int group = 4;
             int prod = 25;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_26(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 26;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_27(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 27;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_28(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 28;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_29(object sender, RoutedEventArgs e)
@@ -7557,45 +3092,12 @@ namespace BarPlus.Views
             int group = 4;
             int prod = 29;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -7610,45 +3112,12 @@ namespace BarPlus.Views
             int group = 4;
             int prod = 30;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -7663,45 +3132,12 @@ namespace BarPlus.Views
             int group = 4;
             int prod = 31;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -7715,216 +3151,80 @@ namespace BarPlus.Views
         {
             int group = 4;
             int prod = 32;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_33(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 33;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_34(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 34;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_4_35(object sender, RoutedEventArgs e)
         {
             int group = 4;
             int prod = 35;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
         #endregion
 
@@ -7934,45 +3234,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 1;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -7987,45 +3254,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 2;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -8040,45 +3274,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 3;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -8092,216 +3293,80 @@ namespace BarPlus.Views
         {
             int group = 5;
             int prod = 4;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_5(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 5;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_6(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 6;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_7(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 7;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_8(object sender, RoutedEventArgs e)
@@ -8309,45 +3374,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 8;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -8362,45 +3394,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 9;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -8415,45 +3414,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 10;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -8467,216 +3433,80 @@ namespace BarPlus.Views
         {
             int group = 5;
             int prod = 11;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_12(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 12;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_13(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 13;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_14(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 14;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_15(object sender, RoutedEventArgs e)
@@ -8684,45 +3514,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 15;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -8737,45 +3534,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 16;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -8790,45 +3554,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 17;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -8842,216 +3573,80 @@ namespace BarPlus.Views
         {
             int group = 5;
             int prod = 18;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_19(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 19;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_20(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 20;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_21(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 21;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_22(object sender, RoutedEventArgs e)
@@ -9059,45 +3654,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 22;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -9112,45 +3674,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 23;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -9165,45 +3694,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 24;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -9217,216 +3713,80 @@ namespace BarPlus.Views
         {
             int group = 5;
             int prod = 25;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_26(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 26;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_27(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 27;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_28(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 28;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_29(object sender, RoutedEventArgs e)
@@ -9434,45 +3794,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 29;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -9487,45 +3814,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 30;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -9540,45 +3834,12 @@ namespace BarPlus.Views
             int group = 5;
             int prod = 31;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -9592,216 +3853,80 @@ namespace BarPlus.Views
         {
             int group = 5;
             int prod = 32;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_33(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 33;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_34(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 34;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_5_35(object sender, RoutedEventArgs e)
         {
             int group = 5;
             int prod = 35;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
         #endregion
 
@@ -9811,45 +3936,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 1;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -9864,45 +3956,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 2;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -9917,45 +3976,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 3;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -9969,216 +3995,80 @@ namespace BarPlus.Views
         {
             int group = 6;
             int prod = 4;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_5(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 5;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_6(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 6;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_7(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 7;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_8(object sender, RoutedEventArgs e)
@@ -10186,45 +4076,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 8;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -10239,45 +4096,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 9;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -10292,45 +4116,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 10;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -10344,216 +4135,80 @@ namespace BarPlus.Views
         {
             int group = 6;
             int prod = 11;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_12(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 12;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_13(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 13;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_14(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 14;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_15(object sender, RoutedEventArgs e)
@@ -10561,45 +4216,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 15;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -10614,45 +4236,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 16;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -10667,45 +4256,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 17;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -10719,216 +4275,80 @@ namespace BarPlus.Views
         {
             int group = 6;
             int prod = 18;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_19(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 19;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_20(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 20;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_21(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 21;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_22(object sender, RoutedEventArgs e)
@@ -10936,45 +4356,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 22;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -10989,45 +4376,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 23;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -11042,45 +4396,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 24;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -11094,216 +4415,80 @@ namespace BarPlus.Views
         {
             int group = 6;
             int prod = 25;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_26(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 26;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_27(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 27;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_28(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 28;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_29(object sender, RoutedEventArgs e)
@@ -11311,45 +4496,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 29;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -11364,45 +4516,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 30;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -11417,45 +4536,12 @@ namespace BarPlus.Views
             int group = 6;
             int prod = 31;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -11469,216 +4555,80 @@ namespace BarPlus.Views
         {
             int group = 6;
             int prod = 32;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_33(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 33;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_34(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 34;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_6_35(object sender, RoutedEventArgs e)
         {
             int group = 6;
             int prod = 35;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
         #endregion
 
@@ -11688,45 +4638,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 1;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -11741,45 +4658,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 2;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -11794,45 +4678,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 3;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -11846,216 +4697,80 @@ namespace BarPlus.Views
         {
             int group = 7;
             int prod = 4;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_5(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 5;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_6(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 6;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_7(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 7;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_8(object sender, RoutedEventArgs e)
@@ -12063,45 +4778,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 8;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -12116,45 +4798,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 9;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -12169,45 +4818,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 10;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -12221,216 +4837,80 @@ namespace BarPlus.Views
         {
             int group = 7;
             int prod = 11;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_12(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 12;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_13(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 13;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_14(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 14;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_15(object sender, RoutedEventArgs e)
@@ -12438,45 +4918,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 15;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -12491,45 +4938,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 16;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -12544,45 +4958,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 17;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -12596,216 +4977,80 @@ namespace BarPlus.Views
         {
             int group = 7;
             int prod = 18;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_19(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 19;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_20(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 20;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_21(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 21;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_22(object sender, RoutedEventArgs e)
@@ -12813,45 +5058,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 22;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -12866,45 +5078,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 23;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -12919,45 +5098,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 24;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -12971,216 +5117,80 @@ namespace BarPlus.Views
         {
             int group = 7;
             int prod = 25;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_26(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 26;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_27(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 27;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_28(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 28;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_29(object sender, RoutedEventArgs e)
@@ -13188,45 +5198,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 29;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -13241,45 +5218,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 30;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -13294,45 +5238,12 @@ namespace BarPlus.Views
             int group = 7;
             int prod = 31;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -13346,216 +5257,80 @@ namespace BarPlus.Views
         {
             int group = 7;
             int prod = 32;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_33(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 33;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_34(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 34;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_7_35(object sender, RoutedEventArgs e)
         {
             int group = 7;
             int prod = 35;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
         #endregion
 
@@ -13565,45 +5340,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 1;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -13618,45 +5360,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 2;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -13671,45 +5380,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 3;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -13723,216 +5399,80 @@ namespace BarPlus.Views
         {
             int group = 8;
             int prod = 4;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_5(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 5;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_6(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 6;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_7(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 7;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_8(object sender, RoutedEventArgs e)
@@ -13940,45 +5480,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 8;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -13993,45 +5500,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 9;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -14046,45 +5520,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 10;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -14098,216 +5539,80 @@ namespace BarPlus.Views
         {
             int group = 8;
             int prod = 11;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_12(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 12;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_13(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 13;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_14(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 14;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_15(object sender, RoutedEventArgs e)
@@ -14315,45 +5620,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 15;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -14368,45 +5640,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 16;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -14421,45 +5660,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 17;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -14473,216 +5679,80 @@ namespace BarPlus.Views
         {
             int group = 8;
             int prod = 18;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_19(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 19;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
-
+        
         private void Btn_8_20(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 20;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_21(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 21;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_22(object sender, RoutedEventArgs e)
@@ -14690,45 +5760,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 22;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -14743,45 +5780,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 23;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -14796,45 +5800,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 24;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -14848,216 +5819,80 @@ namespace BarPlus.Views
         {
             int group = 8;
             int prod = 25;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_26(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 26;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_27(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 27;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_28(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 28;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_29(object sender, RoutedEventArgs e)
@@ -15065,45 +5900,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 29;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -15118,45 +5920,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 30;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -15171,45 +5940,12 @@ namespace BarPlus.Views
             int group = 8;
             int prod = 31;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -15223,216 +5959,80 @@ namespace BarPlus.Views
         {
             int group = 8;
             int prod = 32;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_33(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 33;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_34(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 34;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_8_35(object sender, RoutedEventArgs e)
         {
             int group = 8;
             int prod = 35;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
         #endregion
 
@@ -15442,45 +6042,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 1;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -15495,45 +6062,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 2;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -15548,45 +6082,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 3;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -15600,216 +6101,80 @@ namespace BarPlus.Views
         {
             int group = 9;
             int prod = 4;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_5(object sender, RoutedEventArgs e)
         {
-            int group = 1;
+            int group = 9;
             int prod = 5;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_6(object sender, RoutedEventArgs e)
         {
             int group = 9;
             int prod = 6;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_7(object sender, RoutedEventArgs e)
         {
             int group = 9;
             int prod = 7;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_8(object sender, RoutedEventArgs e)
@@ -15817,45 +6182,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 8;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -15870,45 +6202,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 9;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -15923,45 +6222,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 10;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -15975,216 +6241,80 @@ namespace BarPlus.Views
         {
             int group = 9;
             int prod = 11;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_12(object sender, RoutedEventArgs e)
         {
             int group = 9;
             int prod = 12;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_13(object sender, RoutedEventArgs e)
         {
             int group = 9;
             int prod = 13;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_14(object sender, RoutedEventArgs e)
         {
             int group = 1;
             int prod = 14;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_15(object sender, RoutedEventArgs e)
@@ -16192,45 +6322,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 15;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -16245,45 +6342,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 16;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -16298,45 +6362,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 17;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -16350,216 +6381,80 @@ namespace BarPlus.Views
         {
             int group = 9;
             int prod = 18;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_19(object sender, RoutedEventArgs e)
         {
             int group = 9;
             int prod = 19;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_20(object sender, RoutedEventArgs e)
         {
             int group = 9;
             int prod = 20;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_21(object sender, RoutedEventArgs e)
         {
             int group = 9;
             int prod = 21;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_22(object sender, RoutedEventArgs e)
@@ -16567,45 +6462,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 22;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -16620,45 +6482,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 23;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -16673,45 +6502,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 24;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -16725,216 +6521,80 @@ namespace BarPlus.Views
         {
             int group = 9;
             int prod = 25;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_26(object sender, RoutedEventArgs e)
         {
             int group = 9;
             int prod = 26;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_27(object sender, RoutedEventArgs e)
         {
             int group = 9;
             int prod = 27;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_28(object sender, RoutedEventArgs e)
         {
             int group = 9;
             int prod = 28;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_29(object sender, RoutedEventArgs e)
@@ -16942,45 +6602,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 29;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -16995,45 +6622,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 30;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -17048,45 +6642,12 @@ namespace BarPlus.Views
             int group = 9;
             int prod = 31;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -17100,216 +6661,80 @@ namespace BarPlus.Views
         {
             int group = 9;
             int prod = 32;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_33(object sender, RoutedEventArgs e)
         {
             int group = 9;
             int prod = 33;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_34(object sender, RoutedEventArgs e)
         {
             int group = 9;
             int prod = 34;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_9_35(object sender, RoutedEventArgs e)
         {
             int group = 9;
             int prod = 35;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
         #endregion
 
@@ -17319,45 +6744,12 @@ namespace BarPlus.Views
             int group = 10;
             int prod = 1;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -17372,45 +6764,12 @@ namespace BarPlus.Views
             int group = 10;
             int prod = 2;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -17425,45 +6784,12 @@ namespace BarPlus.Views
             int group = 10;
             int prod = 3;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -17477,216 +6803,80 @@ namespace BarPlus.Views
         {
             int group = 10;
             int prod = 4;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_5(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 5;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_6(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 6;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_7(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 7;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_8(object sender, RoutedEventArgs e)
@@ -17694,45 +6884,12 @@ namespace BarPlus.Views
             int group = 10;
             int prod = 8;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -17747,45 +6904,12 @@ namespace BarPlus.Views
             int group = 10;
             int prod = 9;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -17800,45 +6924,12 @@ namespace BarPlus.Views
             int group = 10;
             int prod = 10;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -17852,216 +6943,80 @@ namespace BarPlus.Views
         {
             int group = 10;
             int prod = 11;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_12(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 12;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_13(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 13;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_14(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 14;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_15(object sender, RoutedEventArgs e)
@@ -18069,45 +7024,12 @@ namespace BarPlus.Views
             int group = 10;
             int prod = 15;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -18122,45 +7044,12 @@ namespace BarPlus.Views
             int group = 10;
             int prod = 16;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -18175,45 +7064,12 @@ namespace BarPlus.Views
             int group = 10;
             int prod = 17;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -18227,216 +7083,80 @@ namespace BarPlus.Views
         {
             int group = 10;
             int prod = 18;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_19(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 19;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_20(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 20;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_21(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 21;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_22(object sender, RoutedEventArgs e)
@@ -18444,45 +7164,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 22;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -18497,45 +7184,12 @@ namespace BarPlus.Views
             int group = 1;
             int prod = 23;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -18550,45 +7204,12 @@ namespace BarPlus.Views
             int group = 10;
             int prod = 24;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -18602,216 +7223,80 @@ namespace BarPlus.Views
         {
             int group = 10;
             int prod = 25;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_26(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 26;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_27(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 27;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_28(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 28;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_29(object sender, RoutedEventArgs e)
@@ -18819,45 +7304,12 @@ namespace BarPlus.Views
             int group = 10;
             int prod = 29;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -18872,45 +7324,12 @@ namespace BarPlus.Views
             int group = 10;
             int prod = 30;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -18925,45 +7344,12 @@ namespace BarPlus.Views
             int group = 10;
             int prod = 31;
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
@@ -18977,216 +7363,80 @@ namespace BarPlus.Views
         {
             int group = 10;
             int prod = 32;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_33(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 33;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_34(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 34;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
 
         private void Btn_10_35(object sender, RoutedEventArgs e)
         {
             int group = 10;
             int prod = 35;
-
-            //generate the connection string
-            string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-
-            //create a MySQL connection with a query string
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            //create string Query
-            string getValue = "select p_price FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-            string getName = "select p_name FROM t_products WHERE p_groupid = " + group + " AND p_id = " + prod;
-
-            //MySQLCommand
-            MySqlCommand cmdPrice = new MySqlCommand(getValue, connection);
-            MySqlCommand cmdName = new MySqlCommand(getName, connection);
-
-            //open the connection
-            connection.Open();
-
-            string prodPrice = cmdPrice.ExecuteScalar().ToString();
-            string prodName = cmdName.ExecuteScalar().ToString();
-
-            //close the connection
-            connection.Close();
-
-
             char[] separator = { '.', ',' };
-            Int32 count = 2;
-            Double priceTb;
+            Double priceTb = 0.0;
             String lblTotal;
+            string prodName = "";
 
-            //Todo Null bei einstelliger Decimal hinzufügen
-            String[] strlist = prodPrice.Split(separator, count, StringSplitOptions.None);
-
-            if (prodPrice.Contains(",") == false)
-            {
-                priceTb = Convert.ToDouble(strlist[0] + ",0");
-            }
-            else
-            {
-                priceTb = Convert.ToDouble(strlist[0] + "," + strlist[1]);
-            }
-            priceTb = priceTb * quantity;
+            prodName = funcDLL.Func.getProdName(group, prod, prodName);
+            priceTb = funcDLL.Func.getPrice(group, prod, priceTb) * quantity;
 
             this.lv_Users.Items.Add(new MyItem { Product = prodName, Quantity = quantity, Price = priceTb });
 
             lblTotal = lbl_totale.Content.ToString();
 
             lbl_totale.Content = funcDLL.Func.TotalSum(priceTb, lblTotal);
+            quantity = 1;
         }
         #endregion
         #endregion
