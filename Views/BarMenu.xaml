@@ -174,7 +174,7 @@
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowTextColorKey}}"/>
             </Button.Background>
         </Button>
-        <Button Content="TOTAL" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="11,365,0,0" VerticalAlignment="Top" Width="230" Height="50" FontSize="18" BorderThickness="2" Click="Btn_click_result">
+        <Button Content="TOTALE" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="11,365,0,0" VerticalAlignment="Top" Width="230" Height="50" FontSize="18" BorderThickness="2" Click="Btn_click_result">
             <Button.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
             </Button.Foreground>

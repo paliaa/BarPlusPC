@@ -36,28 +36,63 @@ namespace BarPlus.Views
                 //create a MySQL connection with a query string
                 MySqlConnection connection = new MySqlConnection(connectionString);
 
-                MySqlCommand cmdProd = new MySqlCommand("select p_id AS PRODNR, p_name as NOME, p_groupid AS GROUDNR, p_price AS PREZZO, p_ivaid AS IVA from t_products", connection);
+                //MySqlCommand cmdProd = new MySqlCommand("select p_id AS PRODNR, p_name as NOME, p_groupid AS GROUPNR, p_price AS PREZZO, p_ivaid AS IVA from t_products", connection);
                 MySqlCommand cmdGroup = new MySqlCommand("SELECT g_id as ID, g_name AS NOME, g_uscita AS USCITA FROM t_groups", connection);
+                MySqlCommand cmdReadGroup = new MySqlCommand("SELECT g_name FROM t_groups", connection);
 
                 //open the connection
                 connection.Open();
 
-                DataTable dtprod = new DataTable();
                 DataTable dtgroup = new DataTable();
+                DataTable dtGroupName = new DataTable();
 
-                dtprod.Load(cmdProd.ExecuteReader());
                 dtgroup.Load(cmdGroup.ExecuteReader());
+                dtGroupName.Load(cmdReadGroup.ExecuteReader());
+
+                cb_group_prod.ItemsSource = dtGroupName.DefaultView;
+                cb_group_prod.DisplayMemberPath = "g_name";
+                cb_group_prod.SelectedValuePath = "g_name";
+                
+                dtGridGroup.DataContext = dtgroup;
+            }
+            catch (Exception ex)
+            {
+                funcDLL.Func.LogWrite_Error("Errore Configuration - Load Configuration --> " + ex.ToString());
+            }
+
+        }
+
+        private void showProdGroup(object sender, EventArgs e)
+        {
+            string insertGroup = this.cb_group_prod.Text;
+
+            funcDLL.Func.LogWrite_Error("insertGroup: " + insertGroup);
+
+            try
+            {
+                //generate the connection string
+                string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
+                string selectString = "select p_id AS PRODNR, p_name as NOME, p_groupid AS GROUPNR, p_price AS PREZZO, p_ivaid AS IVA from t_products";
+
+                //create a MySQL connection with a query string
+                MySqlConnection connection = new MySqlConnection(connectionString);
+
+                MySqlCommand selectCMD = new MySqlCommand("select p_id AS PRODNR, p_name as NOME, p_groupid AS GROUPNR, p_price AS PREZZO, p_ivaid AS IVA from t_products", connection);
+
+                connection.Open();
+
+                DataTable dtprod = new DataTable();
+
+                dtprod.Load(selectCMD.ExecuteReader());
 
                 //close the connection
                 connection.Close();
 
-                dtGridProd.DataContext = dtprod;
-                dtGridGroup.DataContext = dtgroup;
-                
+                //dtGridProd.DataContext = dtprod;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                funcDLL.Func.LogWrite_Error("Errore Configuration - Load Productslist --> " + ex.ToString());
             }
 
         }
