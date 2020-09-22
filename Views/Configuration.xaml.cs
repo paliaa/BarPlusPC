@@ -72,12 +72,14 @@ namespace BarPlus.Views
             {
                 //generate the connection string
                 string connectionString = "SERVER=localhost;DATABASE=barplus;UID=root;PASSWORD=mima10492;";
-                string selectString = "select p_id AS PRODNR, p_name as NOME, p_groupid AS GROUPNR, p_price AS PREZZO, p_ivaid AS IVA from t_products";
+                string selectString = "SELECT p.* FROM t_products as p INNER JOIN t_groups as g ON p.p_groupid = g.g_id WHERE g.g_name = '" + insertGroup + "';";
+
+                funcDLL.Func.LogWrite_Error("selectString: " + selectString);
 
                 //create a MySQL connection with a query string
                 MySqlConnection connection = new MySqlConnection(connectionString);
 
-                MySqlCommand selectCMD = new MySqlCommand("select p_id AS PRODNR, p_name as NOME, p_groupid AS GROUPNR, p_price AS PREZZO, p_ivaid AS IVA from t_products", connection);
+                MySqlCommand selectCMD = new MySqlCommand(selectString, connection);
 
                 connection.Open();
 
@@ -88,7 +90,7 @@ namespace BarPlus.Views
                 //close the connection
                 connection.Close();
 
-                //dtGridProd.DataContext = dtprod;
+                dtGridProd.DataContext = dtprod;
             }
             catch (Exception ex)
             {
